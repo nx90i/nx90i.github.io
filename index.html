@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أدواتي</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eff4f3;--sf:#fff;--ink:#11333b;--mu:#5b7379;--ac:#e0a526;--ln:#d3e0de;--bt:#11333b;--bt-t:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1e22;--sf:#16292e;--ink:#e6f0ee;--mu:#8fa8ad;--ac:#e8b84a;--ln:#27424a;--bt:#e8b84a;--bt-t:#0f1e22;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1e22;--sf:#16292e;--ink:#e6f0ee;--mu:#8fa8ad;--ac:#e8b84a;--ln:#27424a;--bt:#e8b84a;--bt-t:#0f1e22;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 "IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif}
+header{padding:28px 20px 8px;max-width:640px;margin:auto}
+h1{font:600 2.1rem/1.2 "Reem Kufi","IBM Plex Sans Arabic",Tahoma,sans-serif;margin:0}
+h1 span{border-bottom:4px solid var(--ac)}
+header p{margin:8px 0 0;color:var(--mu)}
+nav{display:flex;gap:8px;overflow-x:auto;padding:14px 20px;max-width:640px;margin:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;font:600 .95rem "IBM Plex Sans Arabic",Tahoma,sans-serif;padding:8px 16px;border:1.5px solid var(--ln);background:transparent;color:var(--ink);border-radius:999px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ac);border-color:var(--ac);color:#11333b}
+main{max-width:640px;margin:auto;padding:4px 20px 40px}
+section{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:20px}
+section[hidden]{display:none}
+h2{margin:0 0 4px;font-size:1.15rem}
+.sub{color:var(--mu);margin:0 0 16px;font-size:.92rem}
+label{display:block;font-size:.9rem;color:var(--mu);margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--ink)}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+textarea{min-height:130px;resize:vertical}
+.row{display:flex;gap:10px}
+.row>*{flex:1;min-width:0}
+.go{margin-top:14px;width:100%;font:600 1rem "IBM Plex Sans Arabic",Tahoma,sans-serif;padding:12px;border:0;border-radius:10px;background:var(--bt);color:var(--bt-t);cursor:pointer}
+.out{margin-top:16px}
+.out dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
+.out dt{color:var(--mu)}
+.out dd{margin:0;font-weight:600}
+.big{font-size:1.5rem;font-weight:600}
+.msg{color:var(--mu)}
+.res{margin-top:14px;border-top:1px solid var(--ln)}
+.res button{display:block;width:100%;text-align:start;font:inherit;font-size:1.1rem;padding:12px 2px;border:0;border-bottom:1px solid var(--ln);background:transparent;color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.res button:active{background:var(--bg)}
+.link{direction:ltr;text-align:left;word-break:break-all;background:var(--bg);padding:10px;border-radius:10px;margin:0 0 10px}
+.acts{display:flex;gap:10px}
+.acts>*{flex:1;text-align:center;text-decoration:none;font:600 .95rem "IBM Plex Sans Arabic",Tahoma,sans-serif;padding:10px;border-radius:10px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+footer{max-width:640px;margin:auto;padding:0 20px 24px;color:var(--mu);font-size:.85rem}
+#toast{position:fixed;inset:auto 0 calc(24px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>أدواتي</span></h1>
+  <p>أدوات عربية سريعة تعمل من جوالك، بلا تسجيل.</p>
+</header>
+<nav role="tablist" aria-label="الأدوات">
+  <button role="tab" aria-selected="true" data-t="zkh">زخرفة الأسماء</button>
+  <button role="tab" aria-selected="false" data-t="age">حاسبة العمر</button>
+  <button role="tab" aria-selected="false" data-t="pct">النسبة المئوية</button>
+  <button role="tab" aria-selected="false" data-t="wc">عدّاد الكلمات</button>
+  <button role="tab" aria-selected="false" data-t="wa">رابط واتساب</button>
+</nav>
+<main>
+  <section id="zkh">
+    <h2>زخرفة الأسماء</h2>
+    <p class="sub">اكتب اسمك بالعربية أو الإنجليزية، واضغط على أي زخرفة لنسخها.</p>
+    <input id="zin" placeholder="مثال: محمد أو Ahmed" maxlength="20" autocomplete="off">
+    <div class="res" id="zout" aria-live="polite"></div>
+  </section>
+
+  <section id="age" hidden>
+    <h2>حاسبة العمر</h2>
+    <p class="sub">اعرف عمرك بالتفصيل وتاريخ ميلادك الهجري.</p>
+    <label for="bd">تاريخ الميلاد</label>
+    <input id="bd" type="date">
+    <button class="go" id="agebtn">احسب عمري</button>
+    <div class="out" id="ageout" aria-live="polite"></div>
+  </section>
+
+  <section id="pct" hidden>
+    <h2>النسبة المئوية</h2>
+    <p class="sub">خصومات ونسب وتغيّر الأسعار.</p>
+    <label for="pm">ماذا تريد؟</label>
+    <select id="pm">
+      <option value="1">كم يساوي س% من ص</option>
+      <option value="2">س تمثّل كم % من ص</option>
+      <option value="3">نسبة التغيّر من س إلى ص</option>
+    </select>
+    <div class="row">
+      <div><label for="pa" id="pla">س</label><input id="pa" type="number" inputmode="decimal"></div>
+      <div><label for="pb" id="plb">ص</label><input id="pb" type="number" inputmode="decimal"></div>
+    </div>
+    <div class="out big" id="pout" aria-live="polite"></div>
+  </section>
+
+  <section id="wc" hidden>
+    <h2>عدّاد الكلمات</h2>
+    <p class="sub">الصق نصك وشاهد الأرقام فوراً.</p>
+    <textarea id="wt" placeholder="اكتب أو الصق النص هنا"></textarea>
+    <div class="out"><dl id="wout"></dl></div>
+  </section>
+
+  <section id="wa" hidden>
+    <h2>رابط واتساب</h2>
+    <p class="sub">أنشئ رابط محادثة مباشرة بدون حفظ الرقم.</p>
+    <div class="row">
+      <div><label for="wcc">رمز الدولة</label><input id="wcc" inputmode="numeric" value="966"></div>
+      <div><label for="wn">الرقم</label><input id="wn" inputmode="numeric" placeholder="5xxxxxxxx"></div>
+    </div>
+    <label for="wm">رسالة جاهزة (اختياري)</label>
+    <textarea id="wm" style="min-height:80px"></textarea>
+    <div class="out" id="waout" aria-live="polite"></div>
+  </section>
+</main>
+<footer>أدواتي — كل الحسابات تتم داخل جهازك ولا يُرسل شيء لأي خادم.</footer>
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+let tt;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1400)}
+async function copy(t){try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(_){}a.remove()}toast('تم النسخ')}
+
+/* التبويبات */
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!==b.dataset.t);
+});
+
+/* ───── الزخرفة ───── */
+const L='abcdefghijklmnopqrstuvwxyz',U=L.toUpperCase();
+const mk=(u,l,x={})=>{const m={};for(let i=0;i<26;i++){m[U[i]]=String.fromCodePoint(u+i);m[L[i]]=String.fromCodePoint((l??u)+i)}return{...m,...x}};
+const SC={};'ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ'.split('').forEach((c,i)=>{SC[L[i]]=c;SC[U[i]]=c});
+const PA={};for(let i=0;i<26;i++){PA[L[i]]=PA[U[i]]=String.fromCodePoint(0x249C+i)}
+const ST=[mk(0x1D400,0x1D41A),mk(0x1D434,0x1D44E,{h:'ℎ'}),mk(0x1D468,0x1D482),
+mk(0x1D49C,0x1D4B6,{B:'ℬ',E:'ℰ',F:'ℱ',H:'ℋ',I:'ℐ',L:'ℒ',M:'ℳ',R:'ℛ',e:'ℯ',g:'ℊ',o:'ℴ'}),
+mk(0x1D4D0,0x1D4EA),mk(0x1D504,0x1D51E,{C:'ℭ',H:'ℌ',I:'ℑ',R:'ℜ',Z:'ℨ'}),mk(0x1D56C,0x1D586),
+mk(0x1D538,0x1D552,{C:'ℂ',H:'ℍ',N:'ℕ',P:'ℙ',Q:'ℚ',R:'ℝ',Z:'ℤ'}),
+mk(0x1D5A0,0x1D5BA),mk(0x1D5D4,0x1D5EE),mk(0x1D608,0x1D622),mk(0x1D63C,0x1D656),mk(0x1D670,0x1D68A),
+mk(0x24B6,0x24D0),mk(0x1F150),mk(0x1F130),mk(0x1F170),mk(0xFF21,0xFF41),SC,PA];
+const FR=["★彡 {} 彡★","༺ {} ༻","『 {} 』","【 {} 】","꧁ {} ꧂","♛ {} ♛","•°¯`•• {} ••´¯°•","✿ {} ✿","★ {} ★","⚡ {} ⚡","♡ {} ♡","ღ {} ღ","「 {} 」","☆彡 {} 彡☆","◥꧁ {} ꧂◤","⟬ {} ⟭","﴿ {} ﴾","❖ {} ❖","✦ {} ✦","❁ {} ❁","۞ {} ۞","◈ {} ◈","𓆩 {} 𓆪","⋆ {} ⋆","❀ {} ❀","☬ {} ☬","♚ {} ♚","✯ {} ✯","▓▒░ {} ░▒▓","┊ {} ┊"];
+const NC=new Set('اأإآدذرزوؤءةى');
+const isAr=c=>c>='\u0621'&&c<='\u064A';
+const tat=(s,n,ev=1)=>{let o='',k=0;const a=[...s];a.forEach((c,i)=>{o+=c;const nx=a[i+1]||'';if(isAr(c)&&!NC.has(c)&&isAr(nx)){k++;if(k%ev===0)o+='\u0640'.repeat(n)}});return o};
+const har=(s,m)=>{let o='',k=0;for(const c of s){o+=c;if(isAr(c)&&!'ءأإآؤ'.includes(c)){o+=m[k%m.length];k++}}return o};
+const H3=['\u064E','\u064F','\u0650'];
+function decorate(raw){
+  const n=raw.replace(/\s+/g,' ').trim();
+  if(!n||n.length>20)return null;
+  const ar=[...n].some(isAr),en=/[a-z]/i.test(n);
+  if(!ar&&!en)return null;
+  let out;
+  if(ar){
+    const b=[tat(n,1),tat(n,2),tat(n,3),tat(n,2,2),har(n,[H3[0]]),har(n,[H3[1]]),har(n,[H3[2]]),har(n,H3),har(tat(n,1),H3)];
+    const v=[n,b[0],b[1],b[7]];
+    out=[...b,...FR.map((f,i)=>f.split('{}').join(v[i%4]))];
+  }else{
+    const ap=m=>[...n].map(c=>m[c]??c).join('');
+    out=ST.map(ap);
+    const fan=[4,0,7,3,6,9,2,12].map(i=>ST[i]);
+    out.push(...FR.map((f,i)=>f.split('{}').join(ap(fan[i%8]))));
+  }
+  return [...new Set(out)].slice(0,40);
+}
+$('#zin').oninput=e=>{
+  const box=$('#zout');box.textContent='';
+  const v=e.target.value;
+  if(!v.trim())return;
+  const r=decorate(v);
+  if(!r){const p=document.createElement('p');p.className='msg';p.textContent='اكتب اسماً بالعربية أو الإنجليزية، حتى 20 حرفاً.';box.append(p);return}
+  r.forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>copy(t);box.append(b)});
+};
+
+/* ───── العمر ───── */
+function row(k,v){return `<dt>${k}</dt><dd>${v}</dd>`}
+$('#agebtn').onclick=()=>{
+  const o=$('#ageout'),v=$('#bd').value;
+  if(!v){o.innerHTML='<p class="msg">اختر تاريخ الميلاد أولاً.</p>';return}
+  const b=new Date(v+'T00:00:00'),t=new Date();t.setHours(0,0,0,0);
+  if(b>t){o.innerHTML='<p class="msg">تاريخ الميلاد في المستقبل.</p>';return}
+  let y=t.getFullYear()-b.getFullYear(),m=t.getMonth()-b.getMonth(),d=t.getDate()-b.getDate();
+  if(d<0){m--;d+=new Date(t.getFullYear(),t.getMonth(),0).getDate()}
+  if(m<0){y--;m+=12}
+  const days=Math.round((t-b)/864e5);
+  const nb=new Date(t.getFullYear(),b.getMonth(),b.getDate());if(nb<t)nb.setFullYear(t.getFullYear()+1);
+  const left=Math.round((nb-t)/864e5);
+  const hj=new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(b);
+  const wd=new Intl.DateTimeFormat('ar',{weekday:'long'}).format(b);
+  o.innerHTML='<dl>'+row('عمرك',`<span class="big">${y}</span> سنة و${m} شهراً و${d} يوماً`)+row('بالأيام',days.toLocaleString('en')+' يوماً')+row('ميلادك الهجري',hj)+row('يوم ميلادك',wd)+row('عيد ميلادك القادم',left===0?'اليوم 🎉':`بعد ${left} يوماً`)+'</dl>';
+};
+
+/* ───── النسبة المئوية ───── */
+const pf=n=>(Math.round(n*100)/100).toLocaleString('en');
+function pcalc(){
+  const m=$('#pm').value,a=parseFloat($('#pa').value),b=parseFloat($('#pb').value),o=$('#pout');
+  $('#pla').textContent=m==='3'?'القيمة القديمة (س)':'س';
+  $('#plb').textContent=m==='3'?'القيمة الجديدة (ص)':'ص';
+  if(isNaN(a)||isNaN(b)){o.textContent='';return}
+  if(m==='1')o.textContent=`${pf(a)}% من ${pf(b)} = ${pf(a*b/100)}`;
+  else if(b===0||a===0&&m==='3'){o.innerHTML='<span class="msg" style="font-size:1rem;font-weight:400">لا يمكن القسمة على صفر.</span>';return}
+  else if(m==='2')o.textContent=`${pf(a)} = ${pf(a/b*100)}% من ${pf(b)}`;
+  else{const c=(b-a)/Math.abs(a)*100;o.textContent=`${c>=0?'زيادة':'نقصان'} بنسبة ${pf(Math.abs(c))}%`}
+}
+['#pm','#pa','#pb'].forEach(s=>$(s).addEventListener('input',pcalc));pcalc();
+
+/* ───── عدّاد الكلمات ───── */
+function wcount(){
+  const t=$('#wt').value,w=t.trim()?t.trim().split(/\s+/).length:0;
+  $('#wout').innerHTML=row('الكلمات',w)+row('الحروف',[...t].length)+row('بدون مسافات',[...t.replace(/\s/g,'')].length)+row('الأسطر',t?t.split('\n').length:0)+row('وقت القراءة',w?Math.max(1,Math.round(w/180))+' دقيقة تقريباً':'—');
+}
+$('#wt').oninput=wcount;wcount();
+
+/* ───── واتساب ───── */
+function wabuild(){
+  const cc=$('#wcc').value.replace(/\D/g,''),n=$('#wn').value.replace(/\D/g,'').replace(/^0+/,''),msg=$('#wm').value.trim(),o=$('#waout');
+  if(!cc||n.length<6){o.innerHTML='';return}
+  const url=`https://wa.me/${cc}${n}`+(msg?`?text=${encodeURIComponent(msg)}`:'');
+  o.innerHTML='<p class="link"></p><div class="acts"><button id="wcp">نسخ الرابط</button><a id="wop" target="_blank" rel="noopener">فتح المحادثة</a></div>';
+  o.querySelector('.link').textContent=url;$('#wop').href=url;$('#wcp').onclick=()=>copy(url);
+}
+['#wcc','#wn','#wm'].forEach(s=>$(s).addEventListener('input',wabuild));
+</script>
+</body>
+</html>
