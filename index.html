@@ -3,116 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>أدواتي - أدوات مجانية بالعربي</title>
-<meta name="description" content="زخرفة الأسماء، حاسبة العمر، حاسبة النسبة المئوية، عداد الكلمات، رابط واتساب، مولد كلمات مرور وأكثر. مجاناً.">
+<title>أدواتي - أدوات عربية مجانية</title>
+<meta name="description" content="أدوات عربية مجانية وسهلة: حاسبة العمر، حاسبة المعدل، حاسبة النسبة المئوية، زخرفة الأسماء، عداد الكلمات، رابط واتساب، مولد كلمات المرور، QR، الضريبة وتحويل الوحدات.">
+<meta name="theme-color" content="#0c1016">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="أدواتي">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f6fb;--card:#fff;--tx:#1b2430;--pr:#6c3df4;--bd:#dde2ee}
-@media(prefers-color-scheme:dark){:root{--bg:#10131a;--card:#1a1f2b;--tx:#e8ecf4;--bd:#2b3242}}
+:root{--bg:#0c1016;--card:#151b24;--tx:#f4eee0;--mu:#a9b0bb;--pr:#e2b84a;--on:#1b1405;--bd:#2a3342;--ac:#ffd166;--ok:#e2b84a;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7}
-header{background:linear-gradient(135deg,#6c3df4,#a23df4);color:#fff;text-align:center;padding:28px 12px}
-header h1{margin:0;font-size:28px}
-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px;position:sticky;top:0;background:var(--bg);z-index:5}
-nav a{background:var(--card);border:1px solid var(--bd);color:var(--tx);padding:6px 12px;border-radius:20px;text-decoration:none;font-size:14px}
-main{max-width:700px;margin:auto;padding:10px}
-section{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:14px 0}
-h2{margin:0 0 10px;color:var(--pr);font-size:20px}
-input,textarea,select{width:100%;padding:10px;margin:5px 0;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
-button{background:var(--pr);color:#fff;border:0;padding:10px 16px;border-radius:8px;font:inherit;cursor:pointer;margin:4px 2px}
-button.s{background:#555}
-.out{background:var(--bg);border:1px dashed var(--bd);border-radius:8px;padding:10px;margin-top:8px;word-break:break-all;white-space:pre-wrap}
-.row{display:flex;gap:8px}.row>*{flex:1}
-.z{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--bd);padding:6px 0}
-.ad{text-align:center;color:#999;border:1px dashed var(--bd);padding:14px;margin:14px 0;border-radius:10px;font-size:13px}
-footer{text-align:center;padding:20px;color:#888;font-size:13px}
+html{font-size:18px;scroll-behavior:smooth}
+body{margin:0;font-family:Cairo,Tahoma,Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.8}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+header{background:linear-gradient(160deg,#1d2636,#0c1016);color:var(--tx);padding:1rem 1rem 1.2rem;border-bottom:2px solid var(--pr)}
+.hb{max-width:760px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+header a{color:inherit;text-decoration:none}
+header h1{margin:0;font-size:2rem;font-weight:800;line-height:1.3;color:var(--pr)}
+header p{margin:0;font-size:.95rem;opacity:.92}
+.fs{display:flex;gap:.4rem;align-items:center;font-size:.85rem}
+@media(max-width:480px){.fs span{display:none}.hb{flex-wrap:nowrap}}
+.fs button{background:var(--pr);color:var(--on);border:0;border-radius:.6rem;min-width:2.8rem;min-height:2.8rem;font:inherit;font-weight:800;cursor:pointer}
+main{max-width:760px;margin:auto;padding:1rem}
+.v{display:none}.v.on{display:block}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+@media(min-width:560px){.g{grid-template-columns:repeat(3,1fr)}}
+.t{background:var(--card);border:2px solid var(--bd);border-radius:1rem;padding:1rem .6rem;text-align:center;text-decoration:none;color:var(--tx);display:block}
+.t{box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.t:hover,.t:focus-visible,.t:active{border-color:var(--pr);background:linear-gradient(180deg,#1b2430,var(--card))}
+#qo img{background:#fff;padding:10px;border-radius:.7rem}
+#inst{display:none;width:100%;margin:0 0 1rem}
+.ios{display:none;color:var(--mu);font-size:.9rem;margin:0 0 1rem}
+.t b{display:block;font-size:1.1rem;font-weight:800}
+.t span{display:block;font-size:.85rem;color:var(--mu);line-height:1.5}
+.t i{font-style:normal;font-size:1.7rem;display:block;width:3.4rem;height:3.4rem;line-height:3.4rem;margin:0 auto .4rem;border-radius:50%;background:rgba(226,184,74,.13);border:1px solid rgba(226,184,74,.35)}
+.intro{font-size:1.1rem;margin:.2rem 0 1rem}
+.back{display:inline-block;margin:.2rem 0 .8rem;padding:.5rem 1rem;border:2px solid var(--pr);border-radius:2rem;color:var(--pr);text-decoration:none;font-weight:600}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:1rem;padding:1.2rem}
+h2{margin:0 0 .3rem;font-size:1.5rem;font-weight:800;color:var(--pr)}
+.d{margin:0 0 1rem;color:var(--mu);font-size:.95rem}
+label{display:block;font-weight:600;margin-top:.6rem}
+input,textarea,select{width:100%;min-height:3rem;padding:.6rem .8rem;margin:.3rem 0;border:2px solid var(--bd);border-radius:.7rem;background:var(--bg);color:var(--tx);font:inherit}
+button.b{background:var(--pr);color:var(--on);border:0;min-height:3rem;padding:.5rem 1.2rem;border-radius:.7rem;font:inherit;font-weight:600;cursor:pointer;margin:.3rem .2rem .3rem 0}
+button.b.s{background:transparent;color:var(--pr);border:2px solid var(--pr)}
+.out{background:var(--bg);border:2px dashed var(--bd);border-radius:.7rem;padding:.8rem;margin-top:.7rem;word-break:break-all;white-space:pre-wrap;font-size:1.05rem}
+.row{display:flex;gap:.6rem}.row>*{flex:1;min-width:0}
+.z{display:flex;justify-content:space-between;align-items:center;gap:.6rem;border-bottom:1px solid var(--bd);padding:.5rem 0;font-size:1.15rem}
+.v p{margin:.5rem 0}
+.nx{background:var(--bg);border-radius:.6rem;padding:.5rem .6rem;font-weight:800;color:var(--pr)}
+.gt{margin:1.2rem 0 .2rem;font-weight:800;color:var(--pr);font-size:1.1rem}
+footer{max-width:760px;margin:1rem auto 0;padding:1.2rem 1rem 2rem;text-align:center;color:var(--mu);font-size:.9rem}
+footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
+#toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:.7rem 1.4rem;border-radius:2rem;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+#toast.on{opacity:1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header><h1>🛠️ أدواتي</h1><div>أدوات مجانية سريعة بالعربي</div></header>
-<nav>
-<a href="#z">زخرفة</a><a href="#age">العمر</a><a href="#pc">النسبة</a><a href="#wc">عداد الكلمات</a><a href="#wa">واتساب</a><a href="#pw">كلمة مرور</a><a href="#qr">QR</a><a href="#tx">نص</a><a href="#vat">الضريبة</a><a href="#cd">تحويل</a>
-</nav>
+<header><div class="hb">
+<a href="#home"><h1>أدواتي</h1><p>أدوات عربية بسيطة ومجانية</p></a>
+<div class="fs" role="group" aria-label="حجم الخط"><span>حجم الخط</span><button onclick="fz(-1)" aria-label="تصغير الخط">أ−</button><button onclick="fz(1)" aria-label="تكبير الخط">أ+</button></div>
+</div></header>
 <main>
 
-<div class="ad">مساحة إعلانية</div>
+<section class="v" id="home">
+<p class="intro">اختر الأداة التي تحتاجها، وكلها مجانية وتعمل مباشرة من هاتفك.</p>
+<button class="b" id="inst">⬇ ثبّت التطبيق على هاتفك</button>
+<p class="ios" id="ios">في آيفون: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية» لتثبيت التطبيق.</p>
+<div class="g" id="grid"></div>
+<!-- مكان إعلان AdSense بعد الموافقة -->
+</section>
 
-<section id="z"><h2>✨ زخرفة الأسماء</h2>
-<input id="zi" placeholder="اكتب اسمك (إنجليزي أو عربي)" oninput="deco()">
-<div id="zo"></div></section>
+<section class="v" id="pt"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>مواقيت الصلاة</h2><p class="d">مواقيت الصلاة لمدن الدول العربية، تُحسب على جهازك دون إنترنت.</p>
+<label for="pcn">الدولة</label><select id="pcn" onchange="ptc()"></select>
+<label for="pci">المدينة</label><select id="pci" onchange="prayer()"></select>
+<label for="pd">التاريخ</label><input type="date" id="pd" onchange="prayer()">
+<div class="out" id="pth"></div>
+<div id="pto"></div>
+<p class="d" id="ptn"></p></div></section>
 
-<section id="age"><h2>🎂 حاسبة العمر</h2>
-<input type="date" id="bd">
-<button onclick="age()">احسب</button>
-<div class="out" id="ao">اختر تاريخ ميلادك</div></section>
+<section class="v" id="gpa"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة المعدل</h2><p class="d">اكتب درجة كل مادة وعدد ساعاتها، وسنحسب لك المعدل بنفس مقياس درجاتك (من 4 أو 5 أو 100).</p>
+<div id="gr"></div>
+<button class="b s" onclick="gadd()">+ إضافة مادة</button><button class="b" onclick="gcalc()">احسب المعدل</button>
+<div class="out" id="go">أدخل الدرجات ثم اضغط احسب</div></div></section>
 
-<section id="pc"><h2>٪ حاسبة النسبة المئوية</h2>
-<div class="row"><input type="number" id="p1" placeholder="النسبة %"><input type="number" id="p2" placeholder="الرقم"></div>
-<button onclick="pc(1)">كم تساوي النسبة من الرقم؟</button>
-<div class="row"><input type="number" id="p3" placeholder="الرقم الأول"><input type="number" id="p4" placeholder="الرقم الثاني"></div>
-<button onclick="pc(2)">الأول كم % من الثاني؟</button>
-<button onclick="pc(3)">نسبة التغيّر من الأول للثاني</button>
-<div class="out" id="po">النتيجة هنا</div></section>
+<section class="v" id="age"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة العمر</h2><p class="d">اعرف عمرك بالسنوات والأشهر والأيام، وتاريخ ميلادك بالهجري.</p>
+<label for="bd">تاريخ الميلاد</label><input type="date" id="bd">
+<button class="b" onclick="age()">احسب عمري</button>
+<div class="out" id="ao">اختر تاريخ ميلادك ثم اضغط احسب</div></div></section>
 
-<section id="wc"><h2>📝 عداد الكلمات والحروف</h2>
-<textarea id="wt" rows="5" placeholder="الصق نصك هنا" oninput="wc()"></textarea>
-<div class="out" id="wo">كلمات: 0 | حروف: 0 | أسطر: 0</div></section>
+<section class="v" id="pc"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة النسبة المئوية</h2><p class="d">ثلاث حسابات شائعة: نسبة من رقم، رقم من رقم، ونسبة التغيّر.</p>
+<div class="row"><div><label for="p1">النسبة %</label><input type="number" id="p1"></div><div><label for="p2">الرقم</label><input type="number" id="p2"></div></div>
+<button class="b" onclick="pc(1)">كم تساوي النسبة من الرقم؟</button>
+<div class="row"><div><label for="p3">الرقم الأول</label><input type="number" id="p3"></div><div><label for="p4">الرقم الثاني</label><input type="number" id="p4"></div></div>
+<button class="b" onclick="pc(2)">الأول كم % من الثاني؟</button><button class="b" onclick="pc(3)">نسبة التغيّر</button>
+<div class="out" id="po">النتيجة تظهر هنا</div></div></section>
 
-<section id="wa"><h2>💬 منشئ رابط واتساب</h2>
-<input id="wn" type="tel" placeholder="الرقم مع مفتاح الدولة مثال 966501234567">
-<textarea id="wm" rows="2" placeholder="رسالة جاهزة (اختياري)"></textarea>
-<button onclick="wa()">إنشاء الرابط</button><button class="s" onclick="cp('wo2')">نسخ</button>
-<div class="out" id="wo2">الرابط يظهر هنا</div></section>
+<section class="v" id="z"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>زخرفة الأسماء</h2><p class="d">اكتب اسمك ويظهر لك أكثر من 70 شكلاً فخماً، بينها أشكال لألعاب مثل ببجي وفري فاير. اضغط «نسخ» على ما يعجبك. بعض الألعاب لا تقبل رموزاً معيّنة، فجرّب أكثر من شكل.</p>
+<label for="zi">اسمك</label><input id="zi" placeholder="اكتب اسمك هنا" oninput="deco()">
+<div id="zo"></div></div></section>
 
-<div class="ad">مساحة إعلانية</div>
+<section class="v" id="wc"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>عداد الكلمات والحروف</h2><p class="d">الصق نصك لتعرف عدد كلماته وحروفه وأسطره فوراً.</p>
+<label for="wt">النص</label><textarea id="wt" rows="6" oninput="wc()"></textarea>
+<div class="out" id="wo">كلمات: 0 | حروف: 0 | أسطر: 0</div></div></section>
 
-<section id="pw"><h2>🔑 مولد كلمات المرور</h2>
-<div class="row"><input type="number" id="pl" value="14" min="6" max="64"><select id="ps"><option value="1">أرقام وحروف ورموز</option><option value="0">أرقام وحروف فقط</option></select></div>
-<button onclick="pw()">توليد</button><button class="s" onclick="cp('pwo')">نسخ</button>
-<div class="out" id="pwo">—</div></section>
+<section class="v" id="wa"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>رابط واتساب</h2><p class="d">أنشئ رابطاً يفتح محادثة واتساب مع رقم معيّن دون حفظه في جهازك.</p>
+<label for="wn">الرقم مع مفتاح الدولة</label><input id="wn" type="tel" placeholder="مثال: 966501234567">
+<label for="wm">رسالة جاهزة (اختياري)</label><textarea id="wm" rows="2"></textarea>
+<button class="b" onclick="wa()">إنشاء الرابط</button><button class="b s" onclick="cp('wo2')">نسخ الرابط</button>
+<div class="out" id="wo2">الرابط يظهر هنا</div></div></section>
 
-<section id="qr"><h2>🔳 منشئ QR</h2>
-<input id="qi" placeholder="رابط أو نص">
-<button onclick="qr()">إنشاء</button>
-<div id="qo" style="text-align:center;margin-top:8px"></div></section>
+<section class="v" id="pw"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>مولد كلمات المرور</h2><p class="d">كلمة مرور قوية تُنشأ على جهازك ولا تُرسل لأي مكان.</p>
+<div class="row"><div><label for="pl">الطول</label><input type="number" id="pl" value="14" min="6" max="64"></div><div><label for="ps">النوع</label><select id="ps"><option value="1">أرقام وحروف ورموز</option><option value="0">أرقام وحروف فقط</option></select></div></div>
+<button class="b" onclick="pw()">توليد</button><button class="b s" onclick="cp('pwo')">نسخ</button>
+<div class="out" id="pwo">—</div></div></section>
 
-<section id="tx"><h2>🔤 أدوات النص</h2>
-<textarea id="ti" rows="4" placeholder="اكتب النص"></textarea>
-<button onclick="t(0)">UPPER</button><button onclick="t(1)">lower</button><button onclick="t(2)">عكس النص</button><button onclick="t(3)">حذف المسافات الزائدة</button><button onclick="t(4)">حذف التشكيل</button><button class="s" onclick="cp('ti',1)">نسخ</button></section>
+<section class="v" id="qr"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>منشئ QR</h2><p class="d">حوّل أي رابط أو نص إلى رمز QR يمكن مسحه بالكاميرا.</p>
+<label for="qi">الرابط أو النص</label><input id="qi">
+<button class="b" onclick="qr()">إنشاء الرمز</button>
+<div id="qo" style="text-align:center;margin-top:.8rem"></div></div></section>
 
-<section id="vat"><h2>🧾 حاسبة الضريبة</h2>
-<div class="row"><input type="number" id="va" placeholder="المبلغ"><input type="number" id="vr" value="15" placeholder="النسبة %"></div>
-<button onclick="vat(1)">أضف الضريبة</button><button onclick="vat(0)">استخرج الضريبة من المبلغ</button>
-<div class="out" id="vo">—</div></section>
+<section class="v" id="tx"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>أدوات النص</h2><p class="d">تحويل حالة الأحرف، عكس النص، وحذف المسافات والتشكيل.</p>
+<label for="ti">النص</label><textarea id="ti" rows="5"></textarea>
+<button class="b" onclick="t(0)">UPPER</button><button class="b" onclick="t(1)">lower</button><button class="b" onclick="t(2)">عكس النص</button><button class="b" onclick="t(3)">حذف المسافات الزائدة</button><button class="b" onclick="t(4)">حذف التشكيل</button><button class="b s" onclick="cp('ti',1)">نسخ</button></div></section>
 
-<section id="cd"><h2>📏 محوّل وحدات</h2>
-<div class="row"><input type="number" id="cv" placeholder="القيمة"><select id="ct">
-<option value="km-mi">كم ← ميل</option><option value="mi-km">ميل ← كم</option><option value="kg-lb">كجم ← باوند</option><option value="lb-kg">باوند ← كجم</option><option value="c-f">مئوية ← فهرنهايت</option><option value="f-c">فهرنهايت ← مئوية</option><option value="m-ft">متر ← قدم</option><option value="ft-m">قدم ← متر</option></select></div>
-<button onclick="cv()">تحويل</button>
-<div class="out" id="co">—</div></section>
+<section class="v" id="vat"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة الضريبة</h2><p class="d">أضف ضريبة القيمة المضافة لمبلغ، أو استخرجها من مبلغ شامل.</p>
+<div class="row"><div><label for="va">المبلغ</label><input type="number" id="va"></div><div><label for="vr">النسبة %</label><input type="number" id="vr" value="15"></div></div>
+<button class="b" onclick="vat(1)">أضف الضريبة</button><button class="b" onclick="vat(0)">استخرج الضريبة</button>
+<div class="out" id="vo">—</div></div></section>
 
-<div class="ad">مساحة إعلانية</div>
+<section class="v" id="cd"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>محوّل الوحدات</h2><p class="d">حوّل بين الكيلومتر والميل، والكيلوغرام والباوند، والمئوية والفهرنهايت، والمتر والقدم.</p>
+<div class="row"><div><label for="cv">القيمة</label><input type="number" id="cv"></div><div><label for="ct">نوع التحويل</label><select id="ct">
+<option value="km-mi">كم ← ميل</option><option value="mi-km">ميل ← كم</option><option value="kg-lb">كجم ← باوند</option><option value="lb-kg">باوند ← كجم</option><option value="c-f">مئوية ← فهرنهايت</option><option value="f-c">فهرنهايت ← مئوية</option><option value="m-ft">متر ← قدم</option><option value="ft-m">قدم ← متر</option></select></div></div>
+<button class="b" onclick="cv()">حوّل</button>
+<div class="out" id="co">—</div></div></section>
+
+<section class="v" id="hj"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>محوّل التاريخ</h2><p class="d">حوّل بين التاريخ الميلادي والهجري (تقويم أم القرى). قد يختلف يوماً واحداً عن رؤية الهلال.</p>
+<h3 class="gt">من ميلادي إلى هجري</h3>
+<label for="hg">التاريخ الميلادي</label><input type="date" id="hg">
+<button class="b" onclick="g2h()">حوّل إلى هجري</button>
+<div class="out" id="hgo">—</div>
+<h3 class="gt">من هجري إلى ميلادي</h3>
+<div class="row"><div><label for="hd">اليوم</label><input type="number" id="hd" min="1" max="30"></div><div><label for="hm">الشهر</label><select id="hm"></select></div><div><label for="hy">السنة</label><input type="number" id="hy" placeholder="1447"></div></div>
+<button class="b" onclick="h2g()">حوّل إلى ميلادي</button>
+<div class="out" id="hdo">—</div></div></section>
+
+<section class="v" id="zk"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة الزكاة</h2><p class="d">النصاب 85 غراماً من الذهب، والزكاة 2.5% إذا بلغ مالك النصاب ومرّ عليه سنة هجرية كاملة.</p>
+<label for="zp">سعر غرام الذهب اليوم (بعملتك)</label><input type="number" id="zp">
+<label for="zw">مجموع مالك (نقد وادخار وذهب وعروض تجارة)</label><input type="number" id="zw">
+<label for="zd">الديون المستحقة عليك (إن وجدت)</label><input type="number" id="zd">
+<button class="b" onclick="zk()">احسب الزكاة</button>
+<div class="out" id="zo2">أدخل البيانات ثم اضغط احسب</div>
+<p class="d">هذه حسبة تقريبية، ولحالتك الخاصة راجع أهل العلم.</p></div></section>
+
+<section class="v" id="bmi"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة BMI والسعرات</h2><p class="d">اعرف مؤشر كتلة الجسم، وتقدير السعرات اليومية للحفاظ على وزنك.</p>
+<div class="row"><div><label for="bh">الطول (سم)</label><input type="number" id="bh"></div><div><label for="bw">الوزن (كجم)</label><input type="number" id="bw"></div></div>
+<div class="row"><div><label for="ba">العمر (اختياري)</label><input type="number" id="ba"></div><div><label for="bs">الجنس</label><select id="bs"><option value="m">ذكر</option><option value="f">أنثى</option></select></div></div>
+<label for="bx">مستوى النشاط</label><select id="bx"><option value="1.2">قليل الحركة</option><option value="1.375">نشاط خفيف</option><option value="1.55">نشاط متوسط</option><option value="1.725">نشاط عالٍ</option></select>
+<button class="b" onclick="bmi()">احسب</button>
+<div class="out" id="bo">أدخل الطول والوزن ثم اضغط احسب</div>
+<p class="d">النتائج تقديرية ولا تغني عن استشارة الطبيب.</p></div></section>
+
+<section class="v" id="cur"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>محوّل العملات</h2><p class="d">حوّل بين العملات العربية والعالمية بأسعار محدّثة من الإنترنت.</p>
+<label for="cuA">المبلغ</label><input type="number" id="cuA" value="1" oninput="curc()">
+<div class="row"><div><label for="cuF">من</label><select id="cuF" onchange="curc()"></select></div><div><label for="cuT">إلى</label><select id="cuT" onchange="curc()"></select></div></div>
+<button class="b s" onclick="curs()">⇄ عكس</button><button class="b s" onclick="curinit.l=0;curinit()">↻ إعادة المحاولة</button>
+<label for="cuM">أو أدخل سعر الصرف بنفسك (1 من = كم إلى)</label><input type="number" id="cuM" step="any" placeholder="اختياري" oninput="curc()">
+<div class="out" id="cuO">جارٍ تحميل الأسعار...</div>
+<p class="d" id="cuS"></p></div></section>
+
+<section class="v" id="sal"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة الراتب الصافي</h2><p class="d">أدخل نسب التأمينات والضريبة المعمول بها في بلدك، فالقوانين تختلف من دولة لأخرى.</p>
+<div class="row"><div><label for="sB">الراتب الأساسي</label><input type="number" id="sB"></div><div><label for="sA">البدلات</label><input type="number" id="sA" value="0"></div></div>
+<div class="row"><div><label for="sI">التأمينات %</label><input type="number" id="sI" value="0" step="any"></div><div><label for="sT">الضريبة %</label><input type="number" id="sT" value="0" step="any"></div></div>
+<label for="sK">تُحسب التأمينات على</label><select id="sK"><option value="b">الراتب الأساسي فقط</option><option value="a">الأساسي + البدلات</option></select>
+<label for="sX">خصومات ثابتة أخرى</label><input type="number" id="sX" value="0">
+<button class="b" onclick="salc()">احسب الصافي</button>
+<div class="out" id="sO">أدخل الراتب ثم اضغط احسب</div>
+<p class="d">الضريبة هنا نسبة ثابتة مبسّطة على الراتب بعد التأمينات، وليست شرائح تفصيلية.</p></div></section>
+
+<section class="v" id="inh"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>حاسبة الميراث</h2><p class="d">تقدير تعليمي للحالات الشائعة: الزوج أو الزوجات، الأب، الأم، الأبناء، البنات. وهي ليست فتوى.</p>
+<label for="iE">قيمة التركة بعد الديون والوصية</label><input type="number" id="iE">
+<div class="row"><div><label for="iS">الزوجية</label><select id="iS"><option value="0">لا يوجد</option><option value="h">زوج (المتوفاة امرأة)</option><option value="w">زوجة أو أكثر</option></select></div><div><label for="iW">عدد الزوجات</label><input type="number" id="iW" value="1" min="1"></div></div>
+<div class="row"><div><label for="iF">الأب</label><select id="iF"><option value="0">غير موجود</option><option value="1">موجود</option></select></div><div><label for="iM">الأم</label><select id="iM"><option value="0">غير موجودة</option><option value="1">موجودة</option></select></div></div>
+<div class="row"><div><label for="iSo">عدد الأبناء</label><input type="number" id="iSo" value="0" min="0"></div><div><label for="iD">عدد البنات</label><input type="number" id="iD" value="0" min="0"></div></div>
+<label for="iB">عدد الإخوة والأخوات (يؤثرون على نصيب الأم)</label><input type="number" id="iB" value="0" min="0">
+<button class="b" onclick="inhc()">احسب التوزيع</button>
+<div id="iO" class="out">أدخل البيانات ثم اضغط احسب</div>
+<p class="d">لا تشمل الأداة الأجداد والإخوة كورثة وأبناء الأبناء. للحالات الحقيقية راجع المحكمة الشرعية أو أهل العلم.</p></div></section>
+
+<section class="v" id="img"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>ضغط الصور</h2><p class="d">قلّل حجم صورتك داخل جهازك دون رفعها لأي موقع. الناتج بصيغة JPG.</p>
+<label for="imF">اختر صورة</label><input type="file" id="imF" accept="image/*">
+<div class="row"><div><label for="imQ">الجودة</label><select id="imQ"><option value="0.9">عالية</option><option value="0.7" selected>متوسطة</option><option value="0.5">منخفضة</option><option value="0.3">أقل حجم</option></select></div><div><label for="imW">أقصى عرض</label><select id="imW"><option value="0">دون تغيير</option><option value="1920">1920</option><option value="1280">1280</option><option value="800">800</option></select></div></div>
+<button class="b" onclick="imgc()">اضغط الصورة</button>
+<div class="out" id="imO">اختر صورة ثم اضغط</div>
+<img id="imP" alt="معاينة" style="display:none;max-width:100%;border-radius:.7rem;margin-top:.6rem">
+<a id="imD" class="b" style="display:none;text-decoration:none;text-align:center" download="compressed.jpg">تحميل الصورة</a></div></section>
+
+<section class="v" id="pdf"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>تحويل الصور إلى PDF</h2><p class="d">اختر صورة أو أكثر لتصبح في ملف PDF واحد، صفحة لكل صورة. يتم كل شيء داخل جهازك.</p>
+<label for="pdF">اختر الصور</label><input type="file" id="pdF" accept="image/*" multiple>
+<button class="b" onclick="pdfc()">أنشئ PDF</button>
+<div class="out" id="pdO">اختر الصور ثم اضغط</div>
+<a id="pdD" class="b" style="display:none;text-decoration:none;text-align:center" download="images.pdf">تحميل PDF</a></div></section>
+
+<section class="v" id="about"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>من نحن</h2>
+<p>«أدواتي» موقع عربي يجمع أدوات يومية بسيطة في مكان واحد، لتنجز حساباتك ومهامك بخطوات قليلة ودون تسجيل أو رسوم.</p>
+<p>صممناه ليناسب الجميع: الطالب الذي يحسب معدله، وكبير السن الذي يريد أداة واضحة بخط كبير، وصاحب العمل الذي يحتاج حساباً سريعاً.</p>
+<p>نضيف أدوات جديدة باستمرار، وسنفرح باقتراحاتك.</p></div></section>
+
+<section class="v" id="privacy"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>سياسة الخصوصية</h2>
+<p>نحترم خصوصيتك. أغلب الأدوات تعمل داخل متصفحك مباشرة، ولا نحفظ ما تكتبه فيها على أي خادم.</p>
+<p>أداة QR ترسل النص الذي تكتبه إلى خدمة خارجية لإنشاء الصورة، فلا تكتب فيها معلومات سرية.</p>
+<p>قد نعرض إعلانات من Google AdSense مستقبلاً، وقد تستخدم Google ملفات تعريف الارتباط (كوكيز) لعرض إعلانات مناسبة، ويمكنك إدارتها من إعدادات إعلانات Google.</p>
+<p>قد نحفظ على جهازك فقط تفضيل حجم الخط الذي اخترته.</p>
+<p>إذا عدّلنا هذه السياسة سننشر التعديل في هذه الصفحة.</p></div></section>
+
+<section class="v" id="contact"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>تواصل معنا</h2>
+<p>عندك اقتراح لأداة جديدة أو واجهت مشكلة؟ راسلنا وسنرد عليك.</p>
+<p>البريد الإلكتروني: <a href="mailto:paha.wled.ibrahim@gmail.com" style="color:var(--pr)">paha.wled.ibrahim@gmail.com</a></p></div></section>
+
 </main>
-<footer>© أدواتي - جميع الحقوق محفوظة</footer>
+<footer><a href="#about">من نحن</a><a href="#privacy">الخصوصية</a><a href="#contact">تواصل معنا</a><div>© أدواتي - جميع الحقوق محفوظة</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const $=id=>document.getElementById(id);
-function cp(id,v){const e=$(id);const s=v?e.value:e.textContent;navigator.clipboard.writeText(s).then(()=>alert('تم النسخ ✅'))}
-const maps=[
-'𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛',
-'ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ',
-'𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫',
-'𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃',
-'🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩',
-'ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ'];
-function deco(){
-const v=$('zi').value;let h='';
-if(!v){$('zo').innerHTML='';return}
-const res=maps.map(m=>{const a=[...m];return [...v.toLowerCase()].map(c=>{const i=c.charCodeAt(0)-97;return i>=0&&i<26?a[i]:c}).join('')});
-res.push('★彡 '+v+' 彡★','『 '+v+' 』','• ❀ '+[...v].join('ـ')+' ❀ •','꧁༺ '+v+' ༻꧂','✦ '+v+' ✦','☆ '+[...v].join('ـ')+' ☆');
-res.forEach((r,i)=>h+=`<div class="z"><span>${r}</span><button onclick="navigator.clipboard.writeText(this.dataset.t).then(()=>alert('تم النسخ ✅'))" data-t="${r.replace(/"/g,'&quot;')}">نسخ</button></div>`);
-$('zo').innerHTML=h}
-function age(){
-const b=new Date($('bd').value);if(isNaN(b)){$('ao').textContent='اختر تاريخاً صحيحاً';return}
+const T=[['pt','🕋','مواقيت الصلاة','للدول العربية'],['gpa','🎓','حاسبة المعدل','للطلاب'],['age','🎂','حاسبة العمر','بالميلادي والهجري'],['hj','📅','محوّل التاريخ','هجري ↔ ميلادي'],['zk','🕌','حاسبة الزكاة','للمال والذهب'],['bmi','⚖️','BMI والسعرات','الوزن والطاقة'],['cur','💱','محوّل العملات','أسعار حيّة'],['sal','💼','حاسبة الراتب','الصافي بعد الخصم'],['inh','📜','حاسبة الميراث','تقدير تعليمي'],['img','🖼️','ضغط الصور','تقليل الحجم'],['pdf','📄','صور إلى PDF','في ملف واحد'],['pc','٪','النسبة المئوية','ثلاث حسابات'],['z','✨','زخرفة الأسماء','أشكال جاهزة للنسخ'],['wc','📝','عداد الكلمات','كلمات وحروف'],['wa','💬','رابط واتساب','دون حفظ الرقم'],['pw','🔑','كلمة مرور','قوية وآمنة'],['qr','🔳','منشئ QR','لأي رابط أو نص'],['tx','🔤','أدوات النص','تحويل وتنظيف'],['vat','🧾','حاسبة الضريبة','إضافة واستخراج'],['cd','📏','محوّل الوحدات','كم، ميل، كجم...']];
+$('grid').innerHTML=T.map(x=>`<a class="t" href="#${x[0]}"><i>${x[1]}</i><b>${x[2]}</b><span>${x[3]}</span></a>`).join('');
+const names={about:'من نحن',privacy:'سياسة الخصوصية',contact:'تواصل معنا'};T.forEach(x=>names[x[0]]=x[2]);
+function show(h){if(!$(h)||!$(h).classList.contains('v'))h='home';
+document.querySelectorAll('.v').forEach(e=>e.classList.toggle('on',e.id===h));
+document.title=(names[h]?names[h]+' - ':'')+'أدواتي';window.scrollTo(0,0);if(h==='cur')curinit()}
+function route(){show(location.hash.slice(1)||'home')}
+addEventListener('hashchange',route);addEventListener('popstate',route);
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();const h=a.getAttribute('href').slice(1)||'home';show(h);try{if(location.hash!=='#'+h)history.pushState(null,'','#'+h)}catch(x){}});
+route();
+// حجم الخط
+let fs=18;try{fs=+localStorage.getItem('fs')||18}catch(e){}
+function fz(d){fs=Math.min(26,Math.max(15,fs+d*2));document.documentElement.style.fontSize=fs+'px';try{localStorage.setItem('fs',fs)}catch(e){}}
+document.documentElement.style.fontSize=fs+'px';
+// إشعار
+function toast(m){const e=$('toast');e.textContent=m;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1800)}
+function copy(s){navigator.clipboard.writeText(s).then(()=>toast('تم النسخ ✅'),()=>toast('تعذّر النسخ، انسخ يدوياً'))}
+function cp(id,v){const e=$(id);copy(v?e.value:e.textContent)}
+// معدل
+function gadd(){const d=document.createElement('div');d.className='row';d.innerHTML='<input type="number" class="gg" min="0" step="any" placeholder="الدرجة" aria-label="الدرجة"><input type="number" class="gh" min="0" step="any" placeholder="الساعات" aria-label="عدد الساعات">';$('gr').appendChild(d)}
+for(let i=0;i<4;i++)gadd();
+function gcalc(){let s=0,h=0;const g=document.querySelectorAll('.gg'),c=document.querySelectorAll('.gh');
+g.forEach((x,i)=>{const a=parseFloat(x.value),b=parseFloat(c[i].value);if(!isNaN(a)&&!isNaN(b)&&b>0){s+=a*b;h+=b}});
+$('go').textContent=h?`المعدل: ${(s/h).toFixed(2)}\nمجموع الساعات: ${h}`:'أدخل الدرجة والساعات لمادة واحدة على الأقل'}
+// زخرفة
+const maps=['𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛','ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ','𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫','𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃','🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩','ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ','𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟','ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ','🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉','𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇','𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣'].filter(m=>[...m].length==26);
+const FR1=['꧁༒ {n} ༒꧂','👑 {n} 👑','⚜ {n} ⚜','♛ {n} ♛','✦ {n} ✦','『 {n} 』','【 {n} 】','「 {n} 」','• ❀ {n} ❀ •','☆彡 {n} 彡☆','★彡 {n} 彡★','𓆩 {n} 𓆪','༺ {n} ༻','꧁༺ {n} ༻꧂','⫷ {n} ⫸','• ┈┈ {n} ┈┈ •','⌜ {n} ⌟','ღ {n} ღ','✿ {n} ✿','❖ {n} ❖'];
+const FR2=['☠️ {n} ☠️','⚔️ {n} ⚔️','🔥 {n} 🔥','⚡ {n} ⚡','🎯 {n} 🎯','✪ {n} ✪','ツ {n} ツ','乂 {n} 乂','乡 {n} 彡','☬ {n} ☬','⛧ {n} ⛧','༒ {n} ༒','▄︻デ {n} ══━一','【☠】{n}','〘★〙{n}','🎮 {n} 🎮','💀 {n} 💀','🏆 {n} 🏆','🐺 {n} 🐺','🦅 {n} 🦅','ᴳᴼᴰ・{n}','ʟᴇɢᴇɴᴅ┃{n}','ᴘʀᴏ┃{n}','ᴋɪɴɢ┃{n}','ꜱᴛᴀʀ┃{n}','ʙᴏꜱꜱ┃{n}','ᴅᴇᴀᴅ┃{n}','⌖ {n} ⌖'];
+const FR3=['👑 {n} 👑','⚔️ {n} ⚔️','☠️ {n} ☠️','꧁༒ {n} ༒꧂','🔥 {n} 🔥','ツ {n} ツ','ᴘʀᴏ┃{n}'];
+function deco(){const v=$('zi').value;const o=$('zo');o.innerHTML='';if(!v)return;
+const lat=maps.map(m=>{const a=[...m];return [...v.toLowerCase()].map(c=>{const i=c.charCodeAt(0)-97;return i>=0&&i<26?a[i]:c}).join('')});
+const sp=[...v].join('ـ'),fm=(L,n)=>L.map(f=>f.replace('{n}',n));
+const G=[['حروف مزخرفة (للأسماء الإنجليزية)',lat],
+['زخارف فخمة',fm(FR1,v).concat(fm(['• ❀ {n} ❀ •','☆ {n} ☆'],sp))],
+['أشكال الألعاب (ببجي وفري فاير وغيرها)',fm(FR2,v)],
+['ألعاب بحروف مزخرفة',[lat[3],lat[6],lat[7]].filter(Boolean).flatMap(n=>fm(FR3,n))]];
+const seen=new Set([v]);
+G.forEach(g=>{const it=g[1].filter(x=>!seen.has(x)&&seen.add(x));if(!it.length)return;
+const h=document.createElement('div');h.className='gt';h.textContent=g[0];o.appendChild(h);
+it.forEach(r=>{const d=document.createElement('div');d.className='z';const sp2=document.createElement('span');sp2.textContent=r;const bt=document.createElement('button');bt.className='b';bt.textContent='نسخ';bt.onclick=()=>copy(r);d.append(sp2,bt);o.appendChild(d)})})}
+// عمر
+function age(){const b=new Date($('bd').value);if(isNaN(b)){$('ao').textContent='اختر تاريخاً صحيحاً';return}
 const n=new Date();let y=n.getFullYear()-b.getFullYear(),m=n.getMonth()-b.getMonth(),d=n.getDate()-b.getDate();
 if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate()}
 if(m<0){y--;m+=12}
@@ -120,26 +304,190 @@ const days=Math.floor((n-b)/864e5);
 let nb=new Date(n.getFullYear(),b.getMonth(),b.getDate());if(nb<=n)nb.setFullYear(n.getFullYear()+1);
 let h='';try{h=new Intl.DateTimeFormat('ar-SA-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'}).format(b)}catch(e){}
 $('ao').textContent=`عمرك: ${y} سنة و ${m} شهر و ${d} يوم\nإجمالي الأيام: ${days}\nباقي على عيد ميلادك: ${Math.ceil((nb-n)/864e5)} يوم\nتاريخ ميلادك بالهجري: ${h}`}
-function pc(t){
-let r;const a=+$('p1').value,b=+$('p2').value,c=+$('p3').value,d=+$('p4').value;
+// نسبة
+function pc(t){let r;const a=+$('p1').value,b=+$('p2').value,c=+$('p3').value,d=+$('p4').value;
 if(t==1)r=`${a}% من ${b} = ${a*b/100}`;
 if(t==2)r=d?`${c} تساوي ${(c/d*100).toFixed(2)}% من ${d}`:'أدخل أرقاماً صحيحة';
 if(t==3)r=c?`التغيّر: ${((d-c)/c*100).toFixed(2)}%`:'أدخل أرقاماً صحيحة';
 $('po').textContent=r}
+// عداد
 function wc(){const s=$('wt').value.trim();$('wo').textContent=`كلمات: ${s?s.split(/\s+/).length:0} | حروف: ${$('wt').value.length} | أسطر: ${s?s.split('\n').length:0}`}
-function wa(){const n=$('wn').value.replace(/\D/g,'');if(!n){$('wo2').textContent='أدخل الرقم';return}
+// واتساب
+function wa(){const n=$('wn').value.replace(/\D/g,'');if(!n){$('wo2').textContent='أدخل الرقم أولاً';return}
 const m=$('wm').value.trim();$('wo2').textContent='https://wa.me/'+n+(m?'?text='+encodeURIComponent(m):'')}
+// كلمة مرور
 function pw(){const L=Math.min(64,Math.max(6,+$('pl').value||14));let c='abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';if($('ps').value=='1')c+='!@#$%^&*?-_';
 const a=new Uint32Array(L);crypto.getRandomValues(a);$('pwo').textContent=[...a].map(x=>c[x%c.length]).join('')}
-function qr(){const v=$('qi').value.trim();if(!v)return;$('qo').innerHTML='<img alt="QR" width="220" height="220" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(v)+'"><div style="font-size:12px;color:#888">اضغط مطولاً على الصورة لحفظها</div>'}
+// QR
+function qr(){const v=$('qi').value.trim();if(!v){toast('اكتب رابطاً أو نصاً أولاً');return}
+$('qo').innerHTML='<img alt="رمز QR" width="220" height="220" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(v)+'"><div style="font-size:.85rem;color:var(--mu)">اضغط مطولاً على الصورة لحفظها</div>'}
+// نص
 function t(k){const e=$('ti');let v=e.value;
 if(k==0)v=v.toUpperCase();if(k==1)v=v.toLowerCase();if(k==2)v=[...v].reverse().join('');
 if(k==3)v=v.replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();
 if(k==4)v=v.replace(/[\u064B-\u065F\u0670]/g,'');e.value=v}
-function vat(k){const a=+$('va').value,r=+$('vr').value;if(!a){$('vo').textContent='أدخل المبلغ';return}
+// ضريبة
+function vat(k){const a=+$('va').value,r=+$('vr').value;if(!a){$('vo').textContent='أدخل المبلغ أولاً';return}
 $('vo').textContent=k?`الضريبة: ${(a*r/100).toFixed(2)}\nالإجمالي: ${(a*(1+r/100)).toFixed(2)}`:`المبلغ قبل الضريبة: ${(a/(1+r/100)).toFixed(2)}\nالضريبة: ${(a-a/(1+r/100)).toFixed(2)}`}
+// تحويل
 function cv(){const v=+$('cv').value,t=$('ct').value;const f={'km-mi':x=>x*.621371,'mi-km':x=>x*1.60934,'kg-lb':x=>x*2.20462,'lb-kg':x=>x*.453592,'c-f':x=>x*9/5+32,'f-c':x=>(x-32)*5/9,'m-ft':x=>x*3.28084,'ft-m':x=>x*.3048};
 $('co').textContent=(+f[t](v).toFixed(4))}
+// تاريخ
+const HM=['محرّم','صفر','ربيع الأول','ربيع الآخر','جمادى الأولى','جمادى الآخرة','رجب','شعبان','رمضان','شوال','ذو القعدة','ذو الحجة'];
+$('hm').innerHTML=HM.map((n,i)=>`<option value="${i+1}">${n}</option>`).join('');
+function hij(d){const o={};new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{year:'numeric',month:'numeric',day:'numeric',timeZone:'UTC'}).formatToParts(d).forEach(p=>{if(p.type=='year'||p.type=='month'||p.type=='day')o[p.type]=parseInt(p.value)});return o}
+function g2h(){const v=$('hg').value;if(!v){$('hgo').textContent='اختر تاريخاً أولاً';return}
+const d=new Date(v+'T12:00:00Z');try{const o=hij(d);const w=new Intl.DateTimeFormat('ar-u-ca-gregory',{weekday:'long',timeZone:'UTC'}).format(d);$('hgo').textContent=`${w} ${o.day} ${HM[o.month-1]} ${o.year} هـ`}catch(e){$('hgo').textContent='متصفحك لا يدعم التقويم الهجري'}}
+function h2g(){const y=+$('hy').value,m=+$('hm').value,dd=+$('hd').value;if(!y||!dd||dd>30){$('hdo').textContent='أدخل اليوم والسنة بشكل صحيح';return}
+try{const base=Date.UTC(622,6,16,12)+((y-1)*354.367+(m-1)*29.53+(dd-1))*864e5;
+for(let i=-40;i<=40;i++){const d=new Date(base+i*864e5),o=hij(d);if(o.year===y&&o.month===m&&o.day===dd){$('hdo').textContent=new Intl.DateTimeFormat('ar-u-ca-gregory',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(d);return}}
+$('hdo').textContent='تاريخ غير صحيح، تأكد من اليوم والشهر'}catch(e){$('hdo').textContent='متصفحك لا يدعم التقويم الهجري'}}
+// زكاة
+function zk(){const p=+$('zp').value,w=+$('zw').value,d=+$('zd').value||0;if(!p||!w){$('zo2').textContent='أدخل سعر الذهب ومجموع مالك';return}
+const n=85*p,t=w-d,h=`النصاب: ${n.toFixed(2)}\nصافي المال: ${t.toFixed(2)}\n`;
+$('zo2').textContent=t>=n?h+`الزكاة الواجبة (2.5%): ${(t*.025).toFixed(2)}`:h+'لم يبلغ النصاب، فلا زكاة عليك الآن'}
+// BMI
+function bmi(){const h=+$('bh').value/100,w=+$('bw').value,a=+$('ba').value,k=+$('bx').value;
+if(!h||!w){$('bo').textContent='أدخل الطول والوزن';return}
+const b=w/(h*h),c=b<18.5?'أقل من الطبيعي':b<25?'وزن طبيعي':b<30?'زيادة وزن':'سمنة';
+let r=`BMI: ${b.toFixed(1)} (${c})`;
+if(a){const m=10*w+6.25*h*100-5*a+($('bs').value=='m'?5:-161);r+=`\nالسعرات للحفاظ على وزنك: ${Math.round(m*k)} سعرة يومياً`}
+$('bo').textContent=r}
+// مواقيت الصلاة
+const PM={u:[18.5,0,90,'أم القرى'],e:[19.5,17.5,0,'الهيئة المصرية'],k:[18,17.5,0,'الكويت'],q:[18,0,90,'قطر'],a:[18.2,18.2,0,'الإمارات'],m:[19,17,0,'المغرب'],d:[18,17,0,'الجزائر'],t:[18,18,0,'تونس'],j:[18,18,0,'الأردن'],w:[18,17,0,'رابطة العالم الإسلامي']};
+const PC=[
+['السعودية','u','Asia/Riyadh',[['مكة المكرمة',21.4225,39.8262],['المدينة المنورة',24.4672,39.6111],['الرياض',24.7136,46.6753],['جدة',21.5433,39.1728],['الدمام',26.4207,50.0888],['أبها',18.2164,42.5053],['تبوك',28.3835,36.5662],['بريدة',26.326,43.975]]],
+['مصر','e','Africa/Cairo',[['القاهرة',30.0444,31.2357],['الإسكندرية',31.2001,29.9187],['الجيزة',30.0131,31.2089],['أسوان',24.0889,32.8998],['الأقصر',25.6872,32.6396],['بورسعيد',31.2653,32.3019],['المنصورة',31.0409,31.3785],['طنطا',30.7865,31.0004]]],
+['الإمارات','a','Asia/Dubai',[['دبي',25.2048,55.2708],['أبوظبي',24.4539,54.3773],['الشارقة',25.3463,55.4209],['العين',24.2075,55.7447],['عجمان',25.4052,55.5136],['رأس الخيمة',25.7895,55.9432]]],
+['الكويت','k','Asia/Kuwait',[['مدينة الكويت',29.3759,47.9774],['الأحمدي',29.0769,48.0838],['الجهراء',29.3375,47.6581]]],
+['قطر','q','Asia/Qatar',[['الدوحة',25.2854,51.531],['الوكرة',25.1715,51.6034],['الخور',25.6804,51.4969]]],
+['البحرين','u','Asia/Bahrain',[['المنامة',26.2285,50.586],['المحرق',26.2572,50.6119]]],
+['عُمان','j','Asia/Muscat',[['مسقط',23.588,58.3829],['صلالة',17.0151,54.0924],['صحار',24.3417,56.7299],['نزوى',22.9333,57.5333]]],
+['اليمن','u','Asia/Aden',[['صنعاء',15.3694,44.191],['عدن',12.7855,45.0187],['تعز',13.5795,44.0209],['الحديدة',14.7979,42.954],['المكلا',14.5425,49.1242]]],
+['العراق','w','Asia/Baghdad',[['بغداد',33.3152,44.3661],['البصرة',30.5085,47.7804],['الموصل',36.335,43.1189],['أربيل',36.1912,44.0092],['النجف',31.9961,44.3363],['كربلاء',32.616,44.0249],['السليمانية',35.5613,45.4305]]],
+['سوريا','w','Asia/Damascus',[['دمشق',33.5138,36.2765],['حلب',36.2021,37.1343],['حمص',34.7324,36.7137],['اللاذقية',35.5317,35.79],['حماة',35.1318,36.7578]]],
+['لبنان','w','Asia/Beirut',[['بيروت',33.8938,35.5018],['طرابلس',34.4367,35.8497],['صيدا',33.563,35.3688]]],
+['الأردن','j','Asia/Amman',[['عمّان',31.9454,35.9284],['إربد',32.5556,35.8479],['الزرقاء',32.0728,36.0876],['العقبة',29.5321,35.0063]]],
+['فلسطين','w','Asia/Hebron',[['القدس',31.7683,35.2137],['غزة',31.5017,34.4668,'Asia/Gaza'],['رام الله',31.9038,35.2034],['نابلس',32.2211,35.2544],['الخليل',31.5326,35.0998]]],
+['السودان','e','Africa/Khartoum',[['الخرطوم',15.5007,32.5599],['أم درمان',15.6445,32.4777],['بورتسودان',19.6158,37.2164],['كسلا',15.45,36.4]]],
+['ليبيا','e','Africa/Tripoli',[['طرابلس',32.8872,13.1913],['بنغازي',32.1167,20.0667],['مصراتة',32.3754,15.0925],['سبها',27.0377,14.4283]]],
+['تونس','t','Africa/Tunis',[['تونس',36.8065,10.1815],['صفاقس',34.7406,10.7603],['سوسة',35.8256,10.6084],['القيروان',35.6781,10.0963]]],
+['الجزائر','d','Africa/Algiers',[['الجزائر العاصمة',36.7538,3.0588],['وهران',35.6911,-0.6417],['قسنطينة',36.365,6.6147],['عنابة',36.9,7.7667]]],
+['المغرب','m','Africa/Casablanca',[['الرباط',34.0209,-6.8416],['الدار البيضاء',33.5731,-7.5898],['مراكش',31.6295,-7.9811],['فاس',34.0331,-5.0003],['طنجة',35.7595,-5.834],['أكادير',30.4278,-9.5981]]],
+['موريتانيا','w','Africa/Nouakchott',[['نواكشوط',18.0735,-15.9582],['نواذيبو',20.931,-17.0347]]],
+['الصومال','u','Africa/Mogadishu',[['مقديشو',2.0469,45.3182],['هرجيسا',9.56,44.065]]],
+['جيبوتي','u','Africa/Djibouti',[['جيبوتي',11.5721,43.1456]]],
+['جزر القمر','w','Indian/Comoro',[['موروني',-11.7022,43.2551]]]];
+const RD=Math.PI/180;
+function ptimes(y,mo,d,lat,lng,m){const jd=Date.UTC(y,mo-1,d)/864e5+2440587.5,D=jd+(12-lng/15)/24-2451545;
+const g=(357.529+.98560028*D)*RD,q=280.459+.98564736*D,L=(q+1.915*Math.sin(g)+.02*Math.sin(2*g))*RD,e=(23.439-3.6e-7*D)*RD;
+let RA=Math.atan2(Math.cos(e)*Math.sin(L),Math.cos(L))/RD/15;RA=(RA%24+24)%24;
+let eq=((q/15)%24+24)%24-RA;if(eq>12)eq-=24;if(eq<-12)eq+=24;
+const dec=Math.asin(Math.sin(e)*Math.sin(L)),la=lat*RD,noon=12-lng/15-eq;
+const H=a=>Math.acos((Math.sin(-a*RD)-Math.sin(la)*Math.sin(dec))/(Math.cos(la)*Math.cos(dec)))/RD/15;
+const aa=Math.atan(1/(1+Math.tan(Math.abs(la-dec)))),ha=Math.acos((Math.sin(aa)-Math.sin(la)*Math.sin(dec))/(Math.cos(la)*Math.cos(dec)))/RD/15;
+const mg=noon+H(.833);
+return [noon-H(m[0]),noon-H(.833),noon+1/60,noon+ha,mg,m[2]?mg+m[2]/60:noon+H(m[1])]}
+$('pcn').innerHTML=PC.map((c,i)=>`<option value="${i}">${c[0]}</option>`).join('');
+function ptc(){const c=PC[+$('pcn').value];$('pci').innerHTML=c[3].map((x,i)=>`<option value="${i}">${x[0]}</option>`).join('');
+$('pd').value=new Intl.DateTimeFormat('en-CA',{timeZone:c[2]}).format(new Date());prayer()}
+function prayer(){const c=PC[+$('pcn').value],ct=c[3][+$('pci').value];if(!ct)return;const tz=ct[3]||c[2],m=PM[c[1]],v=$('pd').value;if(!v)return;
+const [y,mo,d]=v.split('-').map(Number),t=ptimes(y,mo,d,ct[1],ct[2],m),base=Date.UTC(y,mo-1,d);
+const f=new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',hour12:true,timeZone:tz});
+const ab=h=>base+h*36e5,fm=h=>f.format(new Date(ab(h)+3e4)).replace('AM','ص').replace('PM','م');
+const N=['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],now=Date.now();let nx=-1;
+if(v===new Intl.DateTimeFormat('en-CA',{timeZone:tz}).format(new Date())){for(let i=0;i<6;i++){if(i!=1&&ab(t[i])+3e4>now){nx=i;break}}}
+let hd='';try{const o=hij(new Date(base+43200000));hd=`${o.day} ${HM[o.month-1]} ${o.year} هـ`}catch(e){}
+let ms='';if(nx>=0){const r=Math.max(0,Math.round((ab(t[nx])-now)/6e4));ms=`الصلاة القادمة: ${N[nx]} بعد ${Math.floor(r/60)} ساعة و ${r%60} دقيقة`}else if(v===new Intl.DateTimeFormat('en-CA',{timeZone:tz}).format(new Date()))ms='انتهت صلوات اليوم، والقادمة الفجر غداً';
+$('pth').textContent=(hd?hd+'\n':'')+(ms||'اختر تاريخ اليوم لرؤية الصلاة القادمة');
+$('pto').innerHTML=N.map((n,i)=>`<div class="z${i===nx?' nx':''}"><span>${n}</span><span>${fm(t[i])}</span></div>`).join('');
+$('ptn').textContent='طريقة الحساب: '+m[3]+'. المواقيت تقريبية وقد تختلف دقيقة أو دقيقتين عن التقويم الرسمي، فاعتمد تقويم بلدك عند الاحتياط.';
+try{localStorage.setItem('ptc',$('pcn').value+','+$('pci').value)}catch(e){}}
+try{const sv=(localStorage.getItem('ptc')||'').split(',');if(sv[0]!==''&&PC[+sv[0]]){$('pcn').value=sv[0];ptc();if(PC[+sv[0]][3][+sv[1]])$('pci').value=sv[1];prayer()}else{$('pcn').value='0';ptc()}}catch(e){$('pcn').value='0';ptc()}
+setInterval(()=>{if($('pt').classList.contains('on'))prayer()},30000);
+// عملات
+const CU=[['USD','دولار أمريكي'],['SAR','ريال سعودي'],['AED','درهم إماراتي'],['KWD','دينار كويتي'],['QAR','ريال قطري'],['BHD','دينار بحريني'],['OMR','ريال عماني'],['EGP','جنيه مصري'],['JOD','دينار أردني'],['IQD','دينار عراقي'],['LBP','ليرة لبنانية'],['SYP','ليرة سورية'],['YER','ريال يمني'],['SDG','جنيه سوداني'],['LYD','دينار ليبي'],['TND','دينار تونسي'],['DZD','دينار جزائري'],['MAD','درهم مغربي'],['MRU','أوقية موريتانية'],['SOS','شلن صومالي'],['DJF','فرنك جيبوتي'],['KMF','فرنك قمري'],['ILS','شيكل'],['EUR','يورو'],['GBP','جنيه إسترليني'],['TRY','ليرة تركية']];
+const cuo=CU.map(c=>`<option value="${c[0]}">${c[1]} (${c[0]})</option>`).join('');$('cuF').innerHTML=cuo;$('cuT').innerHTML=cuo;$('cuT').value='SAR';
+let RT=null,CF=0;
+function curinit(){if(curinit.l)return;curinit.l=1;curload()}
+async function jget(u){const c=new AbortController(),t=setTimeout(()=>c.abort(),8000);try{const r=await fetch(u,{signal:c.signal});if(!r.ok)throw 0;return await r.json()}finally{clearTimeout(t)}}
+async function curload(){CF=0;RT=null;$('cuO').textContent='جارٍ تحميل الأسعار...';$('cuS').textContent='';
+const lo=async u=>{const j=await jget(u),r={};for(const k in j.usd)r[k.toUpperCase()]=j.usd[k];return [r,j.date]};
+const S=[async()=>{const j=await jget('https://open.er-api.com/v6/latest/USD');if(j.result!=='success'||!j.rates)throw 0;return [j.rates,j.time_last_update_utc]},
+()=>lo('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json'),
+()=>lo('https://latest.currency-api.pages.dev/v1/currencies/usd.json')];
+let st='';
+for(const f of S){try{const [r,t]=await f();if(!r.SAR||!r.EGP)throw 0;RT=r;let d='';try{d=new Date(t).toLocaleDateString('ar-u-ca-gregory',{day:'numeric',month:'long',year:'numeric'})}catch(e){}
+st='الأسعار محدّثة'+(d&&d!='Invalid Date'?' بتاريخ '+d:'')+'. الأسعار مرجعية وقد تختلف عن سعر الصرف الفعلي في البنوك والسوق. المصدر: ExchangeRate-API.';
+try{localStorage.setItem('rt',JSON.stringify({r:RT,t:st}))}catch(e){}break}catch(e){}}
+if(!RT){try{const c=JSON.parse(localStorage.getItem('rt'));if(c&&c.r){RT=c.r;st='لا يوجد اتصال الآن، تُستخدم آخر أسعار محفوظة. '+c.t}}catch(e){}}
+if(!RT){RT={USD:1,SAR:3.75,AED:3.6725,QAR:3.64,BHD:.376,OMR:.3845,JOD:.709};CF=1;curinit.l=0;st='تعذّر تحميل الأسعار الحية، فتعمل الآن العملات المربوطة رسمياً بالدولار فقط (السعودي والإماراتي والقطري والبحريني والعماني والأردني). لباقي العملات اضغط «إعادة المحاولة» أو أدخل السعر بنفسك.'}
+$('cuS').textContent=st;curc()}
+function curc(){const a=+$('cuA').value,f=$('cuF').value,t=$('cuT').value,o=$('cuO'),mn=+$('cuM').value;
+let r=0;if(mn>0)r=mn;else if(RT&&RT[f]&&RT[t])r=RT[t]/RT[f];
+if(!r){o.textContent=RT?'هذه العملة تحتاج اتصالاً بالإنترنت، أو أدخل السعر بنفسك في الخانة أدناه.':'جارٍ تحميل الأسعار...';return}
+const n=x=>x.toLocaleString('en',{maximumFractionDigits:4});
+o.textContent=`${n(a)} ${f} = ${n(a*r)} ${t}\n1 ${f} = ${n(r)} ${t}`}
+function curs(){const f=$('cuF').value;$('cuF').value=$('cuT').value;$('cuT').value=f;curc()}
+// راتب
+function salc(){const B=+$('sB').value,A=+$('sA').value||0,I=+$('sI').value||0,T=+$('sT').value||0,X=+$('sX').value||0;
+if(!B){$('sO').textContent='أدخل الراتب الأساسي';return}
+const g=B+A,ins=($('sK').value=='b'?B:g)*I/100,tax=(g-ins)*T/100,net=g-ins-tax-X,n=x=>x.toLocaleString('en',{maximumFractionDigits:2});
+$('sO').textContent=`إجمالي الراتب: ${n(g)}\nالتأمينات: ${n(ins)}\nالضريبة: ${n(tax)}\nخصومات أخرى: ${n(X)}\nالصافي الشهري: ${n(net)}\nالصافي السنوي: ${n(net*12)}`}
+// ميراث
+function inhc(){const E=+$('iE').value,sp=$('iS').value,wn=Math.max(1,Math.floor(+$('iW').value||1)),fa=$('iF').value=='1',mo=$('iM').value=='1',
+so=Math.max(0,Math.floor(+$('iSo').value||0)),da=Math.max(0,Math.floor(+$('iD').value||0)),sb=Math.max(0,Math.floor(+$('iB').value||0)),o=$('iO');
+const ch=so+da>0,U=24;
+if(!E){o.textContent='أدخل قيمة التركة';return}
+if(sp=='0'&&!fa&&!mo&&!ch){o.textContent='أضف وارثاً واحداً على الأقل';return}
+if(!ch&&!fa&&sb>0){o.textContent='وجود إخوة وأخوات مع غياب الأب والأبناء حالة تحتاج مفتياً أو محكمة شرعية، ولا تدعمها الأداة.';return}
+const sh={};const spU=sp=='h'?(ch?6:12):sp=='w'?(ch?3:6):0;if(spU)sh.sp=spU;
+if(mo)sh.mo=(ch||sb>=2)?4:((fa&&spU)?(U-spU)/3:8);
+if(fa&&ch)sh.fa=4;
+if(da>0&&so==0)sh.da=da==1?12:16;
+const fixed=Object.values(sh).reduce((a,b)=>a+b,0);let den=U,res=U-fixed,note='';const fin={...sh};
+if(fixed>U){den=fixed;res=0;note='عالت المسألة (عول)، فنقصت الأنصبة بنسبة متساوية.'}
+let left=0;
+if(res>0){if(so>0){const pt=so*2+da;fin.so=res*2*so/pt;if(da)fin.da=res*da/pt}
+else if(fa){fin.fa=(fin.fa||0)+res}
+else{const rk=['mo','da'].filter(k=>fin[k]),sm=rk.reduce((a,k)=>a+fin[k],0);if(sm>0){rk.forEach(k=>fin[k]+=res*fin[k]/sm);note='رُدّ الباقي على أصحاب الفروض عدا الزوجية (الرد).'}else left=res/den}}
+const fr=x=>{for(let d=1;d<=240;d++){const n=Math.round(x*d);if(n>0&&Math.abs(x*d-n)<1e-9)return n==d?'الكل':n+'/'+d}return''},m=x=>x.toLocaleString('en',{maximumFractionDigits:2});
+const L={sp:sp=='h'?'الزوج':'الزوجات ('+wn+')',mo:'الأم',fa:'الأب',so:'الأبناء ('+so+')',da:'البنات ('+da+')'},cnt={sp:sp=='w'?wn:1,mo:1,fa:1,so:so,da:da};
+let h='';for(const k of ['sp','mo','fa','so','da']){if(!fin[k])continue;const x=fin[k]/den,amt=x*E,per=cnt[k]>1?`<br>لكل واحد: ${m(amt/cnt[k])}`:'';
+h+=`<div class="z"><span>${L[k]}<br><small style="color:var(--mu)">${fr(x)} (${(x*100).toFixed(2)}%)${per}</small></span><b>${m(amt)}</b></div>`}
+if(left>0)h+=`<p class="d">بقي ${(left*100).toFixed(2)}% من التركة لا وارث له في هذه الحالة، ويُرجع فيه للمحكمة الشرعية.</p>`;
+if(note)h+=`<p class="d">${note}</p>`;
+o.innerHTML=h}
+// صور
+const kb=n=>n>1048576?(n/1048576).toFixed(2)+' MB':Math.round(n/1024)+' KB';
+function loadJ(f,mx,q){return new Promise((ok,no)=>{const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{let w=im.naturalWidth,h=im.naturalHeight;if(mx&&w>mx){h=Math.round(h*mx/w);w=mx}
+const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);URL.revokeObjectURL(u);
+c.toBlob(b=>b?ok({w,h,b}):no(),'image/jpeg',q)};im.onerror=no;im.src=u})}
+async function imgc(){const f=$('imF').files[0];if(!f){toast('اختر صورة أولاً');return}
+try{const r=await loadJ(f,+$('imW').value,+$('imQ').value),url=URL.createObjectURL(r.b);
+$('imO').textContent=`قبل: ${kb(f.size)} | بعد: ${kb(r.b.size)}`+(r.b.size<f.size?` (وفّرت ${Math.round(100-r.b.size/f.size*100)}%)`:' (لم يقلّ الحجم، جرّب جودة أقل)');
+$('imP').src=url;$('imP').style.display='block';const a=$('imD');a.href=url;a.style.display='block'}catch(e){toast('تعذّر قراءة الصورة')}}
+function mkpdf(im){const en=new TextEncoder(),P=[],O=[];let len=0;const add=x=>{const u=typeof x=='string'?en.encode(x):x;P.push(u);len+=u.length};
+const obj=(id,fn)=>{O[id]=len;add(id+' 0 obj\n');fn();add('\nendobj\n')},n=im.length;add('%PDF-1.4\n');
+obj(1,()=>add('<</Type/Catalog/Pages 2 0 R>>'));
+obj(2,()=>add('<</Type/Pages/Count '+n+'/Kids['+im.map((_,i)=>(3+3*i)+' 0 R').join(' ')+']>>'));
+im.forEach((m,i)=>{const PW=595,PH=842,g=20,s=Math.min((PW-2*g)/m.w,(PH-2*g)/m.h),w=m.w*s,h=m.h*s,cs=`q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${((PW-w)/2).toFixed(2)} ${((PH-h)/2).toFixed(2)} cm /Im Do Q`;
+obj(3+3*i,()=>add(`<</Type/Page/Parent 2 0 R/MediaBox[0 0 ${PW} ${PH}]/Resources<</XObject<</Im ${5+3*i} 0 R>>>>/Contents ${4+3*i} 0 R>>`));
+obj(4+3*i,()=>add(`<</Length ${cs.length}>>\nstream\n${cs}\nendstream`));
+obj(5+3*i,()=>{add(`<</Type/XObject/Subtype/Image/Width ${m.w}/Height ${m.h}/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${m.d.length}>>\nstream\n`);add(m.d);add('\nendstream')})});
+const xr=len,t=3*n+3;add(`xref\n0 ${t}\n0000000000 65535 f \n`);for(let i=1;i<t;i++)add(String(O[i]).padStart(10,'0')+' 00000 n \n');
+add(`trailer\n<</Size ${t}/Root 1 0 R>>\nstartxref\n${xr}\n%%EOF`);return new Blob(P,{type:'application/pdf'})}
+async function pdfc(){const fs=[...$('pdF').files];if(!fs.length){toast('اختر صورة واحدة على الأقل');return}
+$('pdO').textContent='جارٍ إنشاء الملف...';
+try{const im=[];for(const f of fs){const r=await loadJ(f,2000,.92);im.push({w:r.w,h:r.h,d:new Uint8Array(await r.b.arrayBuffer())})}
+const b=mkpdf(im),a=$('pdD');a.href=URL.createObjectURL(b);a.style.display='block';$('pdO').textContent=`تم إنشاء PDF من ${im.length} صورة (${kb(b.size)})`}catch(e){$('pdO').textContent='تعذّر قراءة إحدى الصور'}}
+// تطبيق PWA
+let dp=null;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('inst').style.display='block'});
+$('inst').onclick=async()=>{if(!dp)return;dp.prompt();try{await dp.userChoice}catch(e){}dp=null;$('inst').style.display='none'};
+addEventListener('appinstalled',()=>{$('inst').style.display='none'});
+if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!navigator.standalone)$('ios').style.display='block';
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
