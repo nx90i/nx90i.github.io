@@ -59,6 +59,15 @@ label{display:block;font-weight:600;margin-top:.6rem}
 input,textarea,select{width:100%;min-height:3rem;padding:.6rem .8rem;margin:.3rem 0;border:2px solid var(--bd);border-radius:.7rem;background:var(--bg);color:var(--tx);font:inherit}
 button.b{background:var(--pr);color:var(--on);border:0;min-height:3rem;padding:.5rem 1.2rem;border-radius:.7rem;font:inherit;font-weight:600;cursor:pointer;margin:.3rem .2rem .3rem 0}
 button.b.s{background:transparent;color:var(--pr);border:2px solid var(--pr)}
+.nb{margin-top:1rem}.nb h3{margin:0 0 .3rem;font-size:1.15rem;font-weight:800;color:var(--pr)}.nb p{margin:.3rem 0;color:var(--mu);font-size:.95rem}
+.shr{margin-top:1rem}.shr h3{margin:0 0 .6rem;font-size:1.15rem;font-weight:800;color:var(--pr)}
+.shr .sb{display:flex;gap:.5rem;flex-wrap:wrap}
+.shr .sb>*{flex:1;min-width:6.5rem;display:flex;align-items:center;justify-content:center;min-height:3rem;padding:.4rem .8rem;border:2px solid var(--pr);border-radius:.7rem;background:transparent;color:var(--pr);font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+#sq{margin:.2rem 0 1rem}
+.tyt{background:var(--bg);border:2px dashed var(--bd);border-radius:.7rem;padding:.8rem;margin:.7rem 0;font-size:1.2rem;line-height:2.1}
+.wk{padding:0 .1rem}.wk.ok{color:#2e9e5b}.wk.er{color:#d64545;text-decoration:underline}.wk.cu{background:rgba(226,184,74,.25);border-radius:.3rem}
+button.b.big{display:block;width:100%;min-height:9rem;font-size:3.2rem;border-radius:1.5rem;margin:.8rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0 .6rem}
 .out{background:var(--bg);border:2px dashed var(--bd);border-radius:.7rem;padding:.8rem;margin-top:.7rem;word-break:break-all;white-space:pre-wrap;font-size:1.05rem}
 .row{display:flex;gap:.6rem}.row>*{flex:1;min-width:0}
 .z{display:flex;justify-content:space-between;align-items:center;gap:.6rem;border-bottom:1px solid var(--bd);padding:.5rem 0;font-size:1.15rem}
@@ -83,8 +92,10 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <p class="intro">اختر الأداة التي تحتاجها، وكلها مجانية وتعمل مباشرة من هاتفك.</p>
 <button class="b" id="inst">⬇ ثبّت التطبيق على هاتفك</button>
 <p class="ios" id="ios">في آيفون: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية» لتثبيت التطبيق.</p>
+<input id="sq" type="search" placeholder="🔍 ابحث عن أداة... مثال: زكاة، عمر، QR" oninput="grid()" aria-label="ابحث عن أداة" autocomplete="off">
 <div id="fav"><p class="gt">⭐ مفضلتي</p><div class="g" id="fgrid"></div><p class="gt">كل الأدوات</p></div>
 <div class="g" id="grid"></div>
+<p class="d" id="nores" style="display:none;text-align:center">لا توجد أداة بهذا الاسم، جرّب كلمة أخرى.</p>
 <!-- مكان إعلان AdSense بعد الموافقة -->
 </section>
 
@@ -95,19 +106,19 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <label for="pd">التاريخ</label><input type="date" id="pd" onchange="prayer()">
 <div class="out" id="pth"></div>
 <div id="pto"></div>
-<p class="d" id="ptn"></p></div></section>
+<p class="d" id="ptn"></p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>أداة مجانية تعرض أوقات الصلوات الخمس مع الشروق لمدينتك في الدول العربية. تُحسب الأوقات على جهازك بطريقة فلكية معتمدة، فلا تحتاج اتصالاً بالإنترنت بعد فتح الصفحة. قد يختلف الوقت دقيقة أو دقيقتين عن مسجد حيّك، فالأفضل الاعتماد على تقويم بلدك الرسمي.</p></div></section>
 
 <section class="v" id="gpa"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة المعدل</h2><p class="d">اكتب درجة كل مادة وعدد ساعاتها، وسنحسب لك المعدل بنفس مقياس درجاتك (من 4 أو 5 أو 100).</p>
 <div id="gr"></div>
 <button class="b s" onclick="gadd()">+ إضافة مادة</button><button class="b" onclick="gcalc()">احسب المعدل</button>
-<div class="out" id="go">أدخل الدرجات ثم اضغط احسب</div></div></section>
+<div class="out" id="go">أدخل الدرجات ثم اضغط احسب</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تفيد الطالب الجامعي في حساب معدله الفصلي أو التراكمي بسرعة. تُضرب درجة كل مادة في عدد ساعاتها، ثم يُقسم المجموع على إجمالي الساعات. وتعمل بأي مقياس تستخدمه جامعتك سواء من 4 أو 5 أو 100.</p></div></section>
 
 <section class="v" id="age"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة العمر</h2><p class="d">اعرف عمرك بالسنوات والأشهر والأيام، وتاريخ ميلادك بالهجري.</p>
 <label for="bd">تاريخ الميلاد</label><input type="date" id="bd">
 <button class="b" onclick="age()">احسب عمري</button>
-<div class="out" id="ao">اختر تاريخ ميلادك ثم اضغط احسب</div></div></section>
+<div class="out" id="ao">اختر تاريخ ميلادك ثم اضغط احسب</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحسب عمرك الدقيق بالسنوات والأشهر والأيام، وتعرض عدد الأيام التي عشتها والمدة المتبقية على عيد ميلادك التالي. كما تعطيك تاريخ ميلادك بالتقويم الهجري، وهي مفيدة عند تعبئة النماذج الرسمية.</p></div></section>
 
 <section class="v" id="pc"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة النسبة المئوية</h2><p class="d">ثلاث حسابات شائعة: نسبة من رقم، رقم من رقم، ونسبة التغيّر.</p>
@@ -115,54 +126,54 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <button class="b" onclick="pc(1)">كم تساوي النسبة من الرقم؟</button>
 <div class="row"><div><label for="p3">الرقم الأول</label><input type="number" id="p3"></div><div><label for="p4">الرقم الثاني</label><input type="number" id="p4"></div></div>
 <button class="b" onclick="pc(2)">الأول كم % من الثاني؟</button><button class="b" onclick="pc(3)">نسبة التغيّر</button>
-<div class="out" id="po">النتيجة تظهر هنا</div></div></section>
+<div class="out" id="po">النتيجة تظهر هنا</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحل ثلاث مسائل تتكرر في الحياة اليومية: كم تساوي نسبة معينة من رقم، وكم يمثل رقم من رقم آخر بالنسبة المئوية، وكم نسبة الزيادة أو النقصان بين قيمتين. تنفع في حساب الخصومات والعلامات والأرباح.</p></div></section>
 
 <section class="v" id="z"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>زخرفة الأسماء</h2><p class="d">اكتب اسمك ويظهر لك أكثر من 70 شكلاً فخماً، بينها أشكال لألعاب مثل ببجي وفري فاير. اضغط «نسخ» على ما يعجبك. بعض الألعاب لا تقبل رموزاً معيّنة، فجرّب أكثر من شكل.</p>
 <label for="zi">اسمك</label><input id="zi" placeholder="اكتب اسمك هنا" oninput="deco()">
-<div id="zo"></div></div></section>
+<div id="zo"></div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل اسمك إلى عشرات الأشكال المزخرفة التي تنسخها وتلصقها في حساباتك على إنستغرام وتيك توك وتيليجرام وفي أسماء الألعاب. تدعم الأسماء العربية والإنجليزية. وبعض الألعاب تمنع رموزاً معيّنة، فإذا رُفض شكل فجرّب غيره.</p></div></section>
 
 <section class="v" id="wc"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>عداد الكلمات والحروف</h2><p class="d">الصق نصك لتعرف عدد كلماته وحروفه وأسطره فوراً.</p>
 <label for="wt">النص</label><textarea id="wt" rows="6" oninput="wc()"></textarea>
-<div class="out" id="wo">كلمات: 0 | حروف: 0 | أسطر: 0</div></div></section>
+<div class="out" id="wo">كلمات: 0 | حروف: 0 | أسطر: 0</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تعدّ كلمات نصك وحروفه وأسطره لحظة لصقه. مفيدة للطلاب في الأبحاث والواجبات التي تشترط عدداً معيناً من الكلمات، وللكتّاب في المقالات والمنشورات التي تحدّ من عدد الحروف.</p></div></section>
 
 <section class="v" id="wa"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>رابط واتساب</h2><p class="d">أنشئ رابطاً يفتح محادثة واتساب مع رقم معيّن دون حفظه في جهازك.</p>
 <label for="wn">الرقم مع مفتاح الدولة</label><input id="wn" type="tel" placeholder="مثال: 966501234567">
 <label for="wm">رسالة جاهزة (اختياري)</label><textarea id="wm" rows="2"></textarea>
 <button class="b" onclick="wa()">إنشاء الرابط</button><button class="b s" onclick="cp('wo2')">نسخ الرابط</button>
-<div class="out" id="wo2">الرابط يظهر هنا</div></div></section>
+<div class="out" id="wo2">الرابط يظهر هنا</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تنشئ رابطاً مباشراً يفتح محادثة واتساب مع أي رقم دون حفظه في جهات الاتصال، ويمكنك إضافة رسالة جاهزة له. يستخدمه أصحاب المتاجر والخدمات ليضعوه في صفحاتهم وحساباتهم فيسهل التواصل معهم.</p></div></section>
 
 <section class="v" id="pw"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>مولد كلمات المرور</h2><p class="d">كلمة مرور قوية تُنشأ على جهازك ولا تُرسل لأي مكان.</p>
 <div class="row"><div><label for="pl">الطول</label><input type="number" id="pl" value="14" min="6" max="64"></div><div><label for="ps">النوع</label><select id="ps"><option value="1">أرقام وحروف ورموز</option><option value="0">أرقام وحروف فقط</option></select></div></div>
 <button class="b" onclick="pw()">توليد</button><button class="b s" onclick="cp('pwo')">نسخ</button>
-<div class="out" id="pwo">—</div></div></section>
+<div class="out" id="pwo">—</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تولّد كلمة مرور عشوائية وقوية يصعب تخمينها، وتُنشأ داخل متصفحك دون إرسالها لأي جهة. كلما كانت الكلمة أطول ومتنوعة الرموز كانت أصعب على المخترقين. وننصح باستخدام كلمة مختلفة لكل حساب.</p></div></section>
 
 <section class="v" id="qr"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>منشئ QR</h2><p class="d">حوّل أي رابط أو نص إلى رمز QR يمكن مسحه بالكاميرا.</p>
 <label for="qi">الرابط أو النص</label><input id="qi">
 <button class="b" onclick="qr()">إنشاء الرمز</button>
-<div id="qo" style="text-align:center;margin-top:.8rem"></div></div></section>
+<div id="qo" style="text-align:center;margin-top:.8rem"></div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل رابطاً أو نصاً إلى رمز QR يمكن مسحه بكاميرا الجوال، وتستخدمه المطاعم والمتاجر والإعلانات لنشر الروابط بسهولة. يُنشأ الرمز عبر خدمة خارجية، فلا تكتب فيه معلومات سرية.</p></div></section>
 
 <section class="v" id="tx"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>أدوات النص</h2><p class="d">تحويل حالة الأحرف، عكس النص، وحذف المسافات والتشكيل.</p>
 <label for="ti">النص</label><textarea id="ti" rows="5"></textarea>
-<button class="b" onclick="t(0)">UPPER</button><button class="b" onclick="t(1)">lower</button><button class="b" onclick="t(2)">عكس النص</button><button class="b" onclick="t(3)">حذف المسافات الزائدة</button><button class="b" onclick="t(4)">حذف التشكيل</button><button class="b s" onclick="cp('ti',1)">نسخ</button></div></section>
+<button class="b" onclick="t(0)">UPPER</button><button class="b" onclick="t(1)">lower</button><button class="b" onclick="t(2)">عكس النص</button><button class="b" onclick="t(3)">حذف المسافات الزائدة</button><button class="b" onclick="t(4)">حذف التشكيل</button><button class="b s" onclick="cp('ti',1)">نسخ</button></div><div class="box nb"><h3>عن هذه الأداة</h3><p>مجموعة أدوات صغيرة لتعديل النصوص: تحويل حالة الأحرف الإنجليزية، وعكس النص، وحذف المسافات الزائدة، وإزالة التشكيل من النص العربي. توفّر عليك التعديل اليدوي عند تنظيف النصوص المنسوخة.</p></div></section>
 
 <section class="v" id="vat"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة الضريبة</h2><p class="d">أضف ضريبة القيمة المضافة لمبلغ، أو استخرجها من مبلغ شامل.</p>
 <div class="row"><div><label for="va">المبلغ</label><input type="number" id="va"></div><div><label for="vr">النسبة %</label><input type="number" id="vr" value="15"></div></div>
 <button class="b" onclick="vat(1)">أضف الضريبة</button><button class="b" onclick="vat(0)">استخرج الضريبة</button>
-<div class="out" id="vo">—</div></div></section>
+<div class="out" id="vo">—</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تضيف ضريبة القيمة المضافة إلى سعر ما، أو تستخرجها من مبلغ شامل لها لتعرف السعر قبل الضريبة. يفيد التجار وأصحاب الفواتير. أدخل نسبة الضريبة المعمول بها في بلدك لأنها تختلف من دولة لأخرى.</p></div></section>
 
 <section class="v" id="cd"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>محوّل الوحدات</h2><p class="d">حوّل بين الكيلومتر والميل، والكيلوغرام والباوند، والمئوية والفهرنهايت، والمتر والقدم.</p>
 <div class="row"><div><label for="cv">القيمة</label><input type="number" id="cv"></div><div><label for="ct">نوع التحويل</label><select id="ct">
 <option value="km-mi">كم ← ميل</option><option value="mi-km">ميل ← كم</option><option value="kg-lb">كجم ← باوند</option><option value="lb-kg">باوند ← كجم</option><option value="c-f">مئوية ← فهرنهايت</option><option value="f-c">فهرنهايت ← مئوية</option><option value="m-ft">متر ← قدم</option><option value="ft-m">قدم ← متر</option></select></div></div>
 <button class="b" onclick="cv()">حوّل</button>
-<div class="out" id="co">—</div></div></section>
+<div class="out" id="co">—</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل بين وحدات القياس الشائعة: الكيلومتر والميل، والكيلوغرام والباوند، والدرجة المئوية والفهرنهايت، والمتر والقدم. تفيد المسافرين والطهاة ومن يشتري من المتاجر الأجنبية.</p></div></section>
 
 <section class="v" id="hj"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>محوّل التاريخ</h2><p class="d">حوّل بين التاريخ الميلادي والهجري (تقويم أم القرى). قد يختلف يوماً واحداً عن رؤية الهلال.</p>
@@ -173,7 +184,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <h3 class="gt">من هجري إلى ميلادي</h3>
 <div class="row"><div><label for="hd">اليوم</label><input type="number" id="hd" min="1" max="30"></div><div><label for="hm">الشهر</label><select id="hm"></select></div><div><label for="hy">السنة</label><input type="number" id="hy" placeholder="1447"></div></div>
 <button class="b" onclick="h2g()">حوّل إلى ميلادي</button>
-<div class="out" id="hdo">—</div></div></section>
+<div class="out" id="hdo">—</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل التاريخ من الميلادي إلى الهجري ومن الهجري إلى الميلادي اعتماداً على تقويم أم القرى. قد يختلف التاريخ الفعلي يوماً واحداً بحسب رؤية الهلال في بلدك، فراجع الجهة الرسمية في الأمور الشرعية والرسمية.</p></div></section>
 
 <section class="v" id="zk"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة الزكاة</h2><p class="d">النصاب 85 غراماً من الذهب، والزكاة 2.5% إذا بلغ مالك النصاب ومرّ عليه سنة هجرية كاملة.</p>
@@ -182,7 +193,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <label for="zd">الديون المستحقة عليك (إن وجدت)</label><input type="number" id="zd">
 <button class="b" onclick="zk()">احسب الزكاة</button>
 <div class="out" id="zo2">أدخل البيانات ثم اضغط احسب</div>
-<p class="d">هذه حسبة تقريبية، ولحالتك الخاصة راجع أهل العلم.</p></div></section>
+<p class="d">هذه حسبة تقريبية، ولحالتك الخاصة راجع أهل العلم.</p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تساعدك على معرفة هل بلغ مالك النصاب وكم زكاته. النصاب 85 غراماً من الذهب، والزكاة 2.5% بعد مرور سنة هجرية كاملة. هذه أداة حساب تقريبية، وللحالات الخاصة يُرجع إلى أهل العلم.</p></div></section>
 
 <section class="v" id="bmi"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة BMI والسعرات</h2><p class="d">اعرف مؤشر كتلة الجسم، وتقدير السعرات اليومية للحفاظ على وزنك.</p>
@@ -191,7 +202,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <label for="bx">مستوى النشاط</label><select id="bx"><option value="1.2">قليل الحركة</option><option value="1.375">نشاط خفيف</option><option value="1.55">نشاط متوسط</option><option value="1.725">نشاط عالٍ</option></select>
 <button class="b" onclick="bmi()">احسب</button>
 <div class="out" id="bo">أدخل الطول والوزن ثم اضغط احسب</div>
-<p class="d">النتائج تقديرية ولا تغني عن استشارة الطبيب.</p></div></section>
+<p class="d">النتائج تقديرية ولا تغني عن استشارة الطبيب.</p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحسب مؤشر كتلة الجسم من طولك ووزنك، وتقدّر احتياجك اليومي من السعرات للحفاظ على وزنك. المؤشر دلالة عامة فقط وليس تشخيصاً طبياً، فاستشر طبيباً أو أخصائي تغذية قبل أي حمية.</p></div></section>
 
 <section class="v" id="cur"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>محوّل العملات</h2><p class="d">حوّل بين العملات العربية والعالمية بأسعار محدّثة من الإنترنت.</p>
@@ -200,7 +211,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <button class="b s" onclick="curs()">⇄ عكس</button><button class="b s" onclick="curinit.l=0;curinit()">↻ إعادة المحاولة</button>
 <label for="cuM">أو أدخل سعر الصرف بنفسك (1 من = كم إلى)</label><input type="number" id="cuM" step="any" placeholder="اختياري" oninput="curc()">
 <div class="out" id="cuO">جارٍ تحميل الأسعار...</div>
-<p class="d" id="cuS"></p></div></section>
+<p class="d" id="cuS"></p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل المبالغ بين العملات العربية والعالمية بأسعار تُجلب من الإنترنت. الأسعار استرشادية وقد تختلف قليلاً عن أسعار البنوك ومحلات الصرافة، فتأكد منها قبل أي معاملة مالية.</p></div></section>
 
 <section class="v" id="sal"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة الراتب الصافي</h2><p class="d">أدخل نسب التأمينات والضريبة المعمول بها في بلدك، فالقوانين تختلف من دولة لأخرى.</p>
@@ -210,7 +221,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <label for="sX">خصومات ثابتة أخرى</label><input type="number" id="sX" value="0">
 <button class="b" onclick="salc()">احسب الصافي</button>
 <div class="out" id="sO">أدخل الراتب ثم اضغط احسب</div>
-<p class="d">الضريبة هنا نسبة ثابتة مبسّطة على الراتب بعد التأمينات، وليست شرائح تفصيلية.</p></div></section>
+<p class="d">الضريبة هنا نسبة ثابتة مبسّطة على الراتب بعد التأمينات، وليست شرائح تفصيلية.</p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تقدّر راتبك الصافي بعد خصم التأمينات والضريبة، وتطلب منك إدخال النسب المعمول بها في بلدك لأن القوانين تختلف من دولة لأخرى. النتيجة تقديرية، والراتب الفعلي تحدده جهة عملك.</p></div></section>
 
 <section class="v" id="inh"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>حاسبة الميراث</h2><p class="d">تقدير تعليمي للحالات الشائعة: الزوج أو الزوجات، الأب، الأم، الأبناء، البنات. وهي ليست فتوى.</p>
@@ -221,7 +232,7 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <label for="iB">عدد الإخوة والأخوات (يؤثرون على نصيب الأم)</label><input type="number" id="iB" value="0" min="0">
 <button class="b" onclick="inhc()">احسب التوزيع</button>
 <div id="iO" class="out">أدخل البيانات ثم اضغط احسب</div>
-<p class="d">لا تشمل الأداة الأجداد والإخوة كورثة وأبناء الأبناء. للحالات الحقيقية راجع المحكمة الشرعية أو أهل العلم.</p></div></section>
+<p class="d">لا تشمل الأداة الأجداد والإخوة كورثة وأبناء الأبناء. للحالات الحقيقية راجع المحكمة الشرعية أو أهل العلم.</p></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تعرض تقديراً تعليمياً لتوزيع الميراث في الحالات الشائعة بين الزوج أو الزوجات والأب والأم والأبناء والبنات. وليست فتوى ولا بديلاً عن المحكمة أو أهل العلم، فالحالات المعقدة تحتاج إلى مختص.</p></div></section>
 
 <section class="v" id="img"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>ضغط الصور</h2><p class="d">قلّل حجم صورتك داخل جهازك دون رفعها لأي موقع. الناتج بصيغة JPG.</p>
@@ -230,14 +241,53 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 <button class="b" onclick="imgc()">اضغط الصورة</button>
 <div class="out" id="imO">اختر صورة ثم اضغط</div>
 <img id="imP" alt="معاينة" style="display:none;max-width:100%;border-radius:.7rem;margin-top:.6rem">
-<a id="imD" class="b" style="display:none;text-decoration:none;text-align:center" download="compressed.jpg">تحميل الصورة</a></div></section>
+<a id="imD" class="b" style="display:none;text-decoration:none;text-align:center" download="compressed.jpg">تحميل الصورة</a></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تصغّر حجم صورك لتسهيل رفعها وإرسالها دون خسارة كبيرة في الجودة. تتم المعالجة داخل جهازك فلا تُرفع الصور لأي موقع، والناتج بصيغة JPG. تفيد عند رفع ملفات تشترط حجماً أقصى.</p></div></section>
 
 <section class="v" id="pdf"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>تحويل الصور إلى PDF</h2><p class="d">اختر صورة أو أكثر لتصبح في ملف PDF واحد، صفحة لكل صورة. يتم كل شيء داخل جهازك.</p>
 <label for="pdF">اختر الصور</label><input type="file" id="pdF" accept="image/*" multiple>
 <button class="b" onclick="pdfc()">أنشئ PDF</button>
 <div class="out" id="pdO">اختر الصور ثم اضغط</div>
-<a id="pdD" class="b" style="display:none;text-decoration:none;text-align:center" download="images.pdf">تحميل PDF</a></div></section>
+<a id="pdD" class="b" style="display:none;text-decoration:none;text-align:center" download="images.pdf">تحميل PDF</a></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تجمع صورة أو عدة صور في ملف PDF واحد، بصفحة لكل صورة. تنفع لتجهيز الأوراق والمستندات المطلوبة في الجامعات والوظائف. وتتم العملية داخل جهازك دون رفع صورك لأي مكان.</p></div></section>
+
+<section class="v" id="tf"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>تفقيط الأرقام</h2><p class="d">اكتب رقماً فيظهر مكتوباً بالحروف العربية، ويمكنك اختيار العملة لتحصل على صيغة الشيكات والفواتير.</p>
+<label for="tfi">الرقم</label><input id="tfi" inputmode="decimal" placeholder="مثال: 1250.50" oninput="tfGo()" autocomplete="off">
+<label for="tfc">العملة</label><select id="tfc" onchange="tfGo()"><option value="">بدون عملة (الرقم فقط)</option><option value="0">ريال سعودي</option><option value="1">درهم إماراتي</option><option value="2">دينار كويتي</option><option value="3">ريال قطري</option><option value="4">جنيه مصري</option><option value="5">دينار أردني</option><option value="6">دينار بحريني</option><option value="7">ريال عماني</option><option value="8">دولار أمريكي</option></select>
+<div class="out" id="tfo">اكتب الرقم لتظهر النتيجة</div>
+<button class="b" onclick="cp('tfo')">نسخ النتيجة</button></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحوّل الرقم إلى كلمات عربية صحيحة نحوياً، وتدعم صيغة الشيكات والفواتير بعد اختيار العملة، مع الكسور مثل الهللات والفلوس. تفيد المحاسبين والموظفين وكل من يكتب المبالغ بالحروف. راجع النتيجة بنفسك قبل اعتمادها في المستندات الرسمية.</p></div></section>
+
+<section class="v" id="kb"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>تحويل لوحة المفاتيح</h2><p class="d">كتبت بلوحة مفاتيح إنجليزية وأنت تقصد العربية (أو العكس)؟ الصق النص هنا ليتحوّل إلى الكلام الصحيح.</p>
+<label for="kbi">النص</label><textarea id="kbi" rows="4" placeholder="مثال: hgsghl ugd;l" oninput="kbGo()"></textarea>
+<p class="d" id="kbd"></p>
+<div class="out" id="kbo">اكتب أو الصق النص أعلاه</div>
+<button class="b" onclick="cp('kbo')">نسخ النتيجة</button></div><div class="box nb"><h3>عن هذه الأداة</h3><p>إذا كتبت جملة بلوحة مفاتيح إنجليزية وأنت تقصد العربية، مثل hgsghl بدل «السلام»، فألصقها هنا لتتحول إلى الكلام الصحيح، والعكس أيضاً. تكتشف الأداة اتجاه التحويل تلقائياً، وتعتمد على ترتيب لوحة المفاتيح العربية القياسية.</p></div></section>
+
+<section class="v" id="ty"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>اختبار سرعة الكتابة</h2><p class="d">اكتب النص الظاهر بأسرع ما تستطيع وبدقة. يبدأ العدّاد من أول حرف تكتبه.</p>
+<div class="tyt" id="tyt"></div>
+<textarea id="tyi" rows="3" placeholder="ابدأ الكتابة هنا..." oninput="tyIn()" onpaste="return false" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+<div class="out" id="tyo">النتيجة تظهر بعد الانتهاء</div>
+<button class="b s" onclick="tyNew()">نص جديد</button><button class="b" onclick="tyEnd()">إنهاء</button></div><div class="box nb"><h3>عن هذه الأداة</h3><p>اختبار بسيط يقيس عدد الكلمات الصحيحة التي تكتبها في الدقيقة ودقتك في الكتابة بالعربية. كرّره بنصوص مختلفة لتتحسن سرعتك مع الوقت، ويفيد الطلاب ومن يتدرب على الكتابة السريعة. وتختلف النتيجة بين لوحة مفاتيح الجوال والحاسوب.</p></div></section>
+
+<section class="v" id="cdn"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>عدّاد الأيام</h2><p class="d">اعرف كم يوماً بقي على مناسبة أو موعد، واختر من المناسبات الجاهزة أو حدّد تاريخك.</p>
+<div class="chips"><button class="b s" onclick="cdnSet('r')">رمضان</button><button class="b s" onclick="cdnSet('f')">عيد الفطر</button><button class="b s" onclick="cdnSet('a')">عيد الأضحى</button><button class="b s" onclick="cdnSet('h')">رأس السنة الهجرية</button><button class="b s" onclick="cdnSet('m')">رأس السنة الميلادية</button></div>
+<label for="cde">اسم المناسبة (اختياري)</label><input id="cde" placeholder="مثال: موعد السفر">
+<label for="cdd">التاريخ</label><input type="date" id="cdd">
+<button class="b" onclick="cdnGo()">احسب</button>
+<div class="out" id="cdo">اختر مناسبة أو تاريخاً</div></div><div class="box nb"><h3>عن هذه الأداة</h3><p>تحسب الأيام المتبقية على أي تاريخ تختاره، ولديها اختصارات لأهم المناسبات: رمضان والعيدين ورأس السنة الهجرية والميلادية. وتتبع التواريخ الهجرية تقويم أم القرى، فقد تختلف يوماً واحداً عن رؤية الهلال في بلدك.</p></div></section>
+
+<section class="v" id="ts"><a class="back" href="#home">← كل الأدوات</a><div class="box">
+<h2>المسبحة الإلكترونية</h2><p class="d">اضغط على الرقم لتعدّ أذكارك. يُحفظ العدد على جهازك فلا يضيع إن أغلقت الصفحة.</p>
+<label for="tsd">الذكر</label><select id="tsd" onchange="tsSet()"></select>
+<label for="tst">الهدف</label><select id="tst" onchange="tsSet()"><option value="33">33</option><option value="100">100</option><option value="1000">1000</option><option value="0">بلا حدّ</option></select>
+<div class="out" id="tsx" style="text-align:center;font-size:1.4rem">سبحان الله</div>
+<button class="b big" id="tsn" onclick="tsTap()" aria-label="اضغط للعدّ">0</button>
+<p class="d" id="tsp" style="text-align:center"></p>
+<label><input type="checkbox" id="tsv" style="width:auto;min-height:0;margin:0 0 0 .4rem"> اهتزاز عند كل ضغطة</label>
+<button class="b s" onclick="tsReset()">تصفير العدّاد</button></div><div class="box nb"><h3>عن هذه الأداة</h3><p>مسبحة إلكترونية تعدّ أذكارك بضغطة واحدة، وتحفظ العدد على جهازك. اختر الذكر والهدف، وسيصلك تنبيه عند اكتمال العدد. وهي أداة تعين على العدّ فقط.</p></div></section>
 
 <section class="v" id="about"><a class="back" href="#home">← كل الأدوات</a><div class="box">
 <h2>من نحن</h2>
@@ -264,12 +314,15 @@ footer a{color:var(--pr);margin:0 .5rem;font-weight:600}
 
 <script>
 const $=id=>document.getElementById(id);
-const T=[['pt','🕋','مواقيت الصلاة','للدول العربية'],['gpa','🎓','حاسبة المعدل','للطلاب'],['age','🎂','حاسبة العمر','بالميلادي والهجري'],['hj','📅','محوّل التاريخ','هجري ↔ ميلادي'],['zk','🕌','حاسبة الزكاة','للمال والذهب'],['bmi','⚖️','BMI والسعرات','الوزن والطاقة'],['cur','💱','محوّل العملات','أسعار حيّة'],['sal','💼','حاسبة الراتب','الصافي بعد الخصم'],['inh','📜','حاسبة الميراث','تقدير تعليمي'],['img','🖼️','ضغط الصور','تقليل الحجم'],['pdf','📄','صور إلى PDF','في ملف واحد'],['pc','٪','النسبة المئوية','ثلاث حسابات'],['z','✨','زخرفة الأسماء','أشكال جاهزة للنسخ'],['wc','📝','عداد الكلمات','كلمات وحروف'],['wa','💬','رابط واتساب','دون حفظ الرقم'],['pw','🔑','كلمة مرور','قوية وآمنة'],['qr','🔳','منشئ QR','لأي رابط أو نص'],['tx','🔤','أدوات النص','تحويل وتنظيف'],['vat','🧾','حاسبة الضريبة','إضافة واستخراج'],['cd','📏','محوّل الوحدات','كم، ميل، كجم...']];
+const T=[['pt','🕋','مواقيت الصلاة','للدول العربية'],['gpa','🎓','حاسبة المعدل','للطلاب'],['age','🎂','حاسبة العمر','بالميلادي والهجري'],['hj','📅','محوّل التاريخ','هجري ↔ ميلادي'],['zk','🕌','حاسبة الزكاة','للمال والذهب'],['bmi','⚖️','BMI والسعرات','الوزن والطاقة'],['cur','💱','محوّل العملات','أسعار حيّة'],['sal','💼','حاسبة الراتب','الصافي بعد الخصم'],['inh','📜','حاسبة الميراث','تقدير تعليمي'],['img','🖼️','ضغط الصور','تقليل الحجم'],['pdf','📄','صور إلى PDF','في ملف واحد'],['pc','٪','النسبة المئوية','ثلاث حسابات'],['z','✨','زخرفة الأسماء','أشكال جاهزة للنسخ'],['wc','📝','عداد الكلمات','كلمات وحروف'],['wa','💬','رابط واتساب','دون حفظ الرقم'],['pw','🔑','كلمة مرور','قوية وآمنة'],['qr','🔳','منشئ QR','لأي رابط أو نص'],['tx','🔤','أدوات النص','تحويل وتنظيف'],['vat','🧾','حاسبة الضريبة','إضافة واستخراج'],['cd','📏','محوّل الوحدات','كم، ميل، كجم...'],['tf','🔢','تفقيط الأرقام','الرقم بالحروف'],['kb','⌨️','لوحة المفاتيح','عربي ↔ إنجليزي'],['ty','⚡','سرعة الكتابة','اختبر نفسك'],['cdn','⏳','عدّاد الأيام','رمضان والعيد وأي تاريخ'],['ts','📿','المسبحة','عدّاد الأذكار']];
+const KW={pt:'صلاة أذان فجر ظهر عصر مغرب عشاء أوقات',gpa:'معدل تراكمي درجات جامعة طالب',age:'عمر ميلاد سنة',hj:'تاريخ هجري ميلادي تحويل تقويم',zk:'زكاة ذهب نصاب مال',bmi:'وزن سعرات حرارية كتلة الجسم رجيم',cur:'عملة دولار ريال صرف تحويل أسعار',sal:'راتب صافي تأمينات خصم',inh:'ميراث إرث تركة فرائض',img:'صورة ضغط تصغير حجم',pdf:'بي دي اف صور ملف',pc:'نسبة مئوية خصم',z:'زخرفة أسماء ببجي فري فاير نيك نيم',wc:'عداد كلمات حروف',wa:'واتساب رابط رقم',pw:'كلمة مرور باسورد',qr:'كيو آر باركود رمز',tx:'نص تنظيف تحويل حروف تشكيل',vat:'ضريبة قيمة مضافة',cd:'وحدات تحويل كيلو ميل',tf:'تفقيط أرقام كتابة شيك فاتورة مبلغ',kb:'لوحة مفاتيح عربي إنجليزي خطأ كتابة',ty:'سرعة كتابة اختبار',cdn:'عداد أيام رمضان عيد موعد',ts:'مسبحة أذكار تسبيح'};
+const nz=s=>String(s||'').toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
 let FV=[];try{FV=JSON.parse(localStorage.getItem('fv'))||[]}catch(e){}
 const card=x=>`<div class="tw"><a class="t" href="#${x[0]}"><i>${x[1]}</i><b>${x[2]}</b><span>${x[3]}</span></a><button class="st${FV.includes(x[0])?' on':''}" data-id="${x[0]}" aria-pressed="${FV.includes(x[0])}" aria-label="${FV.includes(x[0])?'إزالة':'إضافة'} ${x[2]} ${FV.includes(x[0])?'من':'إلى'} المفضلة">${FV.includes(x[0])?'★':'☆'}</button></div>`;
 function grid(){const f=FV.map(id=>T.find(x=>x[0]===id)).filter(Boolean);
-$('fgrid').innerHTML=f.map(card).join('');$('fav').classList.toggle('on',f.length>0);
-$('grid').innerHTML=T.map(card).join('')}
+const q=nz(($('sq')||{}).value).trim(),L=q?T.filter(x=>{const h=nz(x[2]+' '+x[3]+' '+(KW[x[0]]||''));return q.split(/\s+/).every(w=>h.includes(w))}):T;
+$('fgrid').innerHTML=f.map(card).join('');$('fav').classList.toggle('on',f.length>0&&!q);
+$('grid').innerHTML=L.map(card).join('');$('nores').style.display=L.length?'none':'block'}
 grid();
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.st');if(!b)return;const id=b.dataset.id;
 FV=FV.includes(id)?FV.filter(v=>v!==id):[...FV,id];try{localStorage.setItem('fv',JSON.stringify(FV))}catch(x){}grid();
@@ -316,6 +369,142 @@ const seen=new Set([v]);
 G.forEach(g=>{const it=g[1].filter(x=>!seen.has(x)&&seen.add(x));if(!it.length)return;
 const h=document.createElement('div');h.className='gt';h.textContent=g[0];o.appendChild(h);
 it.forEach(r=>{const d=document.createElement('div');d.className='z';const sp2=document.createElement('span');sp2.textContent=r;const bt=document.createElement('button');bt.className='b';bt.textContent='نسخ';bt.onclick=()=>copy(r);d.append(sp2,bt);o.appendChild(d)})})}
+
+// زخارف إضافية (إضافة فقط - لا تعدّل الزخارف السابقة)
+const maps2=['𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷','𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳','𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻','𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯','𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓','⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵','ᗩᗷᑕᗪᗴᖴᎶᕼᎥᒍᛕᒪᗰᑎᎾᑭᑫᖇᔕ丅ᑌᐯᗯ᙭Ꭹ乙'].filter(m=>[...m].length==26);
+const DXF=['•°¯`•• {n} ••´¯°•','≋≋ {n} ≋≋','✧･ﾟ: *✧ {n} ✧*:･ﾟ✧','⋆｡°✩ {n} ✩°｡⋆','✶⋆.˚ {n} ˚.⋆✶','𓆩♡𓆪 {n} 𓆩♡𓆪','⟦ {n} ⟧','◥꧁ {n} ꧂◤','❝ {n} ❞','♔ {n} ♔','❁ {n} ❁','☆•°°• {n} •°°•☆','⸙ {n} ⸙','﹏﹏ {n} ﹏﹏','▬▬ι═══ﺤ {n} ═══ι▬▬','๛ {n} ๛','♚ {n} ♚','✿•⋆ {n} ⋆•✿','◈ {n} ◈','┏━ {n} ━┓','╔═ {n} ═╗','〖 {n} 〗','⚝ {n} ⚝','⟡ {n} ⟡','𖤐 {n} 𖤐','★ ━ {n} ━ ★','✦ ━━ {n} ━━ ✦','❖ ─── {n} ─── ❖','☆ ┈┈ {n} ┈┈ ☆','≪ {n} ≫'];
+const DXA=['✦ ━━ {n} ━━ ✦','❖ ─── {n} ─── ❖','『✿ {n} ✿』','❁ {n} ❁','⟦ {n} ⟧','♔ {n} ♔','✧･ﾟ: *✧ {n} ✧*:･ﾟ✧','⋆｡°✩ {n} ✩°｡⋆','•°¯`•• {n} ••´¯°•','𓆩♡𓆪 {n} 𓆩♡𓆪','༺♡༻ {n} ༺♡༻','◥꧁ {n} ꧂◤','☆ ┈┈ {n} ┈┈ ☆','▂▃▅▇ {n} ▇▅▃▂','╰☆☆ {n} ☆☆╮','❥ {n} ❥','ღ‿ღ {n} ღ‿ღ','🌹 {n} 🌹','🦋 {n} 🦋','💎 {n} 💎','🖤 {n} 🖤','✨ {n} ✨','⚡ ━ {n} ━ ⚡','❀ ━ {n} ━ ❀','✯ {n} ✯','≪ {n} ≫','๏ {n} ๏','🌙 {n} 🌙','🔥 ━ {n} ━ 🔥','╔═ {n} ═╗','┏━ {n} ━┓','〖 {n} 〗'];
+function dxL(m,v){const a=[...m];return [...v.toLowerCase()].map(c=>{const i=c.charCodeAt(0)-97;return i>=0&&i<26?a[i]:c}).join('')}
+function dxT(v,k){const NJ='اأإآٱدذرزوؤءةى',ar=c=>/[\u0621-\u064A]/.test(c),a=[...v];let r='';a.forEach((c,i)=>{r+=c;const n=a[i+1];if(n&&ar(c)&&ar(n)&&!NJ.includes(c))r+='ـ'.repeat(k)});return r}
+const dxOld=deco;
+deco=function(){dxOld();const v=$('zi').value;if(!v)return;const o=$('zo');
+const seen=new Set([v]);o.querySelectorAll('.z>span').forEach(e=>seen.add(e.textContent));
+const hasL=/[a-zA-Z]/.test(v),hasA=/[\u0621-\u064A]/.test(v),fm=(L,n)=>L.map(f=>f.replace('{n}',n));
+const G=[];
+if(hasL){
+const st=maps2.map(m=>dxL(m,v));
+const cm=['\u0336','\u0332','\u0337','\u035C\u0361'].map(c=>[...v].map(x=>/[a-zA-Z0-9]/.test(x)?x+c:x).join(''));
+G.push(['حروف فخمة إضافية (للأسماء الإنجليزية)',st.concat(cm)]);
+const fonts=[maps[3],maps[6],maps[7],maps2[1],maps2[0]].filter(Boolean).map(m=>dxL(m,v));
+G.push(['زخارف ملكية بحروف مزخرفة',DXF.map((f,i)=>f.replace('{n}',fonts[i%fonts.length]))])}
+if(hasA){
+const t1=dxT(v,1),t2=dxT(v,2),t3=dxT(v,3),ch=[...v].filter(c=>c!==' ');
+G.push(['تطويل الحروف (بالعربي)',[t1,t2,t3,'ـ'+t1+'ـ','ـ'+t2+'ـ']]);
+G.push(['حروف مفصولة (بالعربي)',[' • ',' ✦ ',' ♡ ',' ★ ','.',' ꧁ '].map(s=>ch.join(s))]);
+G.push(['زخارف عربية فخمة',fm(DXA,v)]);
+G.push(['زخارف عربية بحروف ممدودة',DXA.map((f,i)=>f.replace('{n}',i%2?t2:t1))])}
+G.forEach(g=>{const it=g[1].filter(x=>x&&!seen.has(x)&&seen.add(x));if(!it.length)return;
+const h=document.createElement('div');h.className='gt';h.textContent=g[0];o.appendChild(h);
+it.forEach(r=>{const d=document.createElement('div');d.className='z';const sp2=document.createElement('span');sp2.textContent=r;const bt=document.createElement('button');bt.className='b';bt.textContent='نسخ';bt.onclick=()=>copy(r);d.append(sp2,bt);o.appendChild(d)})})};
+// ===== أدوات جديدة: تفقيط، لوحة المفاتيح، سرعة الكتابة، عدّاد الأيام، المسبحة =====
+const TF={
+um:['','واحد','اثنان','ثلاثة','أربعة','خمسة','ستة','سبعة','ثمانية','تسعة','عشرة'],
+uf:['','واحدة','اثنتان','ثلاث','أربع','خمس','ست','سبع','ثماني','تسع','عشر'],
+tM:['عشرة','أحد عشر','اثنا عشر','ثلاثة عشر','أربعة عشر','خمسة عشر','ستة عشر','سبعة عشر','ثمانية عشر','تسعة عشر'],
+tF:['عشر','إحدى عشرة','اثنتا عشرة','ثلاث عشرة','أربع عشرة','خمس عشرة','ست عشرة','سبع عشرة','ثماني عشرة','تسع عشرة'],
+tn:['','','عشرون','ثلاثون','أربعون','خمسون','ستون','سبعون','ثمانون','تسعون'],
+hd:['','مئة','مئتان','ثلاثمئة','أربعمئة','خمسمئة','ستمئة','سبعمئة','ثمانمئة','تسعمئة'],
+sc:[null,{s:'ألف',d:'ألفان',p:'آلاف',t:'ألفاً'},{s:'مليون',d:'مليونان',p:'ملايين',t:'مليوناً'},{s:'مليار',d:'ملياران',p:'مليارات',t:'ملياراً'}]};
+function tfG(n,f){const h=Math.floor(n/100),r=n%100,p=[];if(h)p.push(TF.hd[h]);
+if(r){if(r<=9)p.push((f?TF.uf:TF.um)[r]);else if(r<20)p.push((f?TF.tF:TF.tM)[r-10]);else{const u=r%10,t=Math.floor(r/10);p.push(u?(f?TF.uf:TF.um)[u]+' و'+TF.tn[t]:TF.tn[t])}}
+return p.join(' و')}
+function tfS(n,k){const c=TF.sc[k];if(n===1)return c.s;if(n===2)return c.d;if(n<=10)return TF.um[n]+' '+c.p;
+const r=n%100;if(n>100&&r>=1&&r<=10)return tfS(n-r,k)+' و'+tfS(r,k);
+if(r===0){const q=n/100;return q===2?'مئتا '+c.s:TF.hd[q]+' '+c.s}return tfG(n,false)+' '+c.t}
+function tfN(N,f){if(N===0)return 'صفر';const g=[N%1000,Math.floor(N/1e3)%1000,Math.floor(N/1e6)%1000,Math.floor(N/1e9)%1000],p=[];
+for(let k=3;k>=1;k--)if(g[k])p.push(tfS(g[k],k));if(g[0])p.push(tfG(g[0],f));return p.join(' و')}
+const TFC=[
+{n:'ريال',d:'ريالان',p:'ريالات',a:'سعودي',sf:100,s:{n:'هللة',d:'هللتان',p:'هللات',f:true}},
+{n:'درهم',d:'درهمان',p:'دراهم',a:'إماراتي',sf:100,s:{n:'فلس',d:'فلسان',p:'فلوس',f:false}},
+{n:'دينار',d:'ديناران',p:'دنانير',a:'كويتي',sf:1000,s:{n:'فلس',d:'فلسان',p:'فلوس',f:false}},
+{n:'ريال',d:'ريالان',p:'ريالات',a:'قطري',sf:100,s:{n:'درهم',d:'درهمان',p:'دراهم',f:false}},
+{n:'جنيه',d:'جنيهان',p:'جنيهات',a:'مصري',sf:100,s:{n:'قرش',d:'قرشان',p:'قروش',f:false}},
+{n:'دينار',d:'ديناران',p:'دنانير',a:'أردني',sf:1000,s:{n:'فلس',d:'فلسان',p:'فلوس',f:false}},
+{n:'دينار',d:'ديناران',p:'دنانير',a:'بحريني',sf:1000,s:{n:'فلس',d:'فلسان',p:'فلوس',f:false}},
+{n:'ريال',d:'ريالان',p:'ريالات',a:'عماني',sf:1000,s:{n:'بيسة',d:'بيستان',p:'بيسات',f:true}},
+{n:'دولار',d:'دولاران',p:'دولارات',a:'أمريكي',sf:100,s:{n:'سنت',d:'سنتان',p:'سنتات',f:false}}];
+function tfT(w){return w.endsWith('ة')?w+'ً':w+'اً'}
+function tfP(N,c,f,ad){const one=c.n+(ad?' '+ad:'')+' '+(f?'واحدة':'واحد'),two=c.d+(ad?' '+ad+'ان':'');
+if(N===1)return one;if(N===2)return two;const d=N%100;
+if(N>2&&d===1)return tfN(N-1,f)+' و'+one;if(N>2&&d===2)return tfN(N-2,f)+' و'+two;
+if(d>=3&&d<=10)return tfN(N,f)+' '+c.p+(ad?' '+ad.slice(0,-1)+'ية':'');
+if(d===0)return tfN(N,f)+' '+c.n+(ad?' '+ad:'');
+return tfN(N,f)+' '+tfT(c.n)+(ad?' '+ad+'اً':'')}
+function tfAll(txt,ci){let t=String(txt).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[,٬\s]/g,'').replace('٫','.');
+if(!t)return '';if(!/^\d+(\.\d+)?$/.test(t))return 'اكتب رقماً صحيحاً بالأرقام فقط، مثل 1250 أو 1250.50';
+let [i,fr]=t.split('.');fr=fr||'';i=i.replace(/^0+(?=\d)/,'');
+if(i.length>12)return 'الحد الأقصى 12 خانة قبل الفاصلة (حتى مئات المليارات)';
+const N=+i;
+if(ci===''||ci==null){let r=tfN(N,false);if(fr){if(fr.length>10)return 'الحد الأقصى 10 خانات بعد الفاصلة';r+=' فاصلة '+[...fr].map(x=>x==='0'?'صفر':TF.um[+x]).join(' ')}return r}
+const c=TFC[+ci],dg=String(c.sf).length-1;
+if(fr.length>dg)return 'هذه العملة تدعم '+dg+' خانات بعد الفاصلة فقط';
+const S=fr?+fr.padEnd(dg,'0'):0;let out=[];
+if(N>0||S===0)out.push(tfP(N,c,false,c.a));
+if(S>0){const sub=tfP(S,{n:c.s.n,d:c.s.d,p:c.s.p},c.s.f,'');out.push(sub)}
+return 'فقط '+out.join(' و')+' لا غير'}
+function tfGo(){const r=tfAll($('tfi').value,$('tfc').value);$('tfo').textContent=r||'اكتب الرقم لتظهر النتيجة'}
+// لوحة المفاتيح
+const KE="qwertyuiop[]asdfghjkl;'zxcvbnm,./`";
+const KA=['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ج','د','ش','س','ي','ب','ل','ا','ت','ن','م','ك','ط','ئ','ء','ؤ','ر','لا','ى','ة','و','ز','ظ','ذ'];
+const KS={H:'أ',Y:'إ',N:'آ',T:'لإ',G:'لأ',B:'لآ'};
+function kbConv(s){const ar=(s.match(/[\u0600-\u06FF]/g)||[]).length,la=(s.match(/[a-zA-Z]/g)||[]).length;
+if(ar>la){let t=s;
+const rs={'أ':'H','إ':'Y','آ':'N','؟':'?'};
+return ['ar',[...t].map(c=>{if(rs[c])return rs[c];const i=KA.indexOf(c);return i>=0?KE[i]:c}).join('')]}
+return ['en',[...s].map(c=>{if(KS[c])return KS[c];if(c==='?')return '؟';const i=KE.indexOf(c.toLowerCase());return i>=0?KA[i]:c}).join('')]}
+function kbGo(){const v=$('kbi').value;if(!v.trim()){$('kbo').textContent='اكتب أو الصق النص أعلاه';$('kbd').textContent='';return}
+const r=kbConv(v);$('kbd').textContent=r[0]==='ar'?'تم التحويل من العربي إلى الإنجليزي':'تم التحويل من الإنجليزي إلى العربي';$('kbo').textContent=r[1]}
+// سرعة الكتابة
+const TYS=['القراءة كل يوم تفتح للإنسان أبواباً جديدة من المعرفة وتمنحه القدرة على فهم العالم من حوله بصورة أعمق.',
+'الوقت أثمن ما يملكه الإنسان، ومن أحسن تنظيمه استطاع أن ينجز أعمالاً كثيرة دون عناء أو تعب.',
+'تبدأ الرحلة الطويلة بخطوة صغيرة، والمثابرة على العمل هي التي توصل صاحبها إلى هدفه مهما طال الطريق.',
+'يحتاج الطالب الناجح إلى الصبر والتنظيم والمراجعة المستمرة، فالنجاح ثمرة جهد متواصل وليس صدفة عابرة.',
+'الصداقة الصادقة كنز نادر، فهي تقف معك في أوقات الشدة وتفرح لنجاحك دون حسد أو غيرة.',
+'تساعد التقنية الحديثة الناس على إنجاز أعمالهم بسرعة أكبر، لكن حسن استخدامها هو ما يصنع الفرق الحقيقي.',
+'الرياضة المنتظمة والنوم الكافي والغذاء المتوازن ثلاثة أسرار بسيطة لحياة صحية ونشيطة.',
+'اللغة العربية من أغنى لغات العالم بالمفردات والمعاني، وتعلمها بإتقان يفتح آفاقاً واسعة أمام أبنائها.'];
+let ty={w:[],s:0,done:false};
+function tyDraw(v,end){const tw=v.split(' '),cur=tw.length-1;$('tyt').innerHTML=ty.w.map((w,i)=>{let c='';if(i<cur||(end&&i===cur&&tw[i]))c=tw[i]===w?'ok':'er';else if(i===cur)c='cu';return '<span class="wk '+c+'">'+w+'</span>'}).join(' ')}
+function tyNew(){const t=TYS[Math.floor(Math.random()*TYS.length)];ty={w:t.split(' '),s:0,done:false};const i=$('tyi');i.value='';i.disabled=false;$('tyo').textContent='النتيجة تظهر بعد الانتهاء';tyDraw('',false)}
+function tyIn(){if(ty.done)return;const v=$('tyi').value;if(!ty.s&&v)ty.s=Date.now();tyDraw(v,false);
+const tw=v.split(' ');if(tw.length===ty.w.length&&tw[tw.length-1]===ty.w[ty.w.length-1])tyEnd()}
+function tyEnd(){if(ty.done)return;const v=$('tyi').value.trim();if(!v||!ty.s){$('tyo').textContent='ابدأ الكتابة أولاً';return}
+ty.done=true;$('tyi').disabled=true;const tw=v.split(/\s+/);let ok=0;tw.forEach((w,i)=>{if(w===ty.w[i])ok++});
+const sec=Math.max(1,Math.round((Date.now()-ty.s)/1000)),wpm=Math.round(ok/(sec/60)),acc=Math.round(ok/tw.length*100);
+tyDraw($('tyi').value,true);$('tyo').textContent='السرعة: '+wpm+' كلمة في الدقيقة\nالدقة: '+acc+'%\nالكلمات الصحيحة: '+ok+' من '+ty.w.length+'\nالزمن: '+sec+' ثانية'}
+// عدّاد الأيام
+function hjNext(hm,hd){const f=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'numeric'}),t=new Date();t.setHours(12,0,0,0);
+for(let i=0;i<400;i++){const x=new Date(t.getTime()+i*864e5),p=f.formatToParts(x);if(+p.find(q=>q.type==='month').value===hm&&+p.find(q=>q.type==='day').value===hd)return x}return null}
+function dIso(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')}
+function cdnSet(k){let x=null,nm='';try{
+if(k==='r'){x=hjNext(9,1);nm='رمضان'}else if(k==='f'){x=hjNext(10,1);nm='عيد الفطر'}else if(k==='a'){x=hjNext(12,10);nm='عيد الأضحى'}else if(k==='h'){x=hjNext(1,1);nm='رأس السنة الهجرية'}
+else if(k==='m'){x=new Date(new Date().getFullYear()+1,0,1);nm='رأس السنة الميلادية'}}catch(e){}
+if(!x){$('cdo').textContent='تعذّر حساب هذا التاريخ على جهازك، اختر التاريخ يدوياً';return}
+$('cde').value=nm;$('cdd').value=dIso(x);cdnGo()}
+function cdnGo(){const v=$('cdd').value;if(!v){$('cdo').textContent='اختر تاريخاً أولاً';return}
+const p=v.split('-').map(Number),tg=new Date(p[0],p[1]-1,p[2]),n=new Date(),t0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),
+days=Math.round((tg-t0)/864e5),nm=$('cde').value.trim(),lb=nm?'«'+nm+'»':'التاريخ المحدد';let r;
+if(days===0)r=lb+' هو اليوم! 🎉';
+else if(days>0){r='باقي على '+lb+':\n'+days+' يوم';if(days>=7)r+='\n('+Math.floor(days/7)+' أسبوع و '+(days%7)+' يوم)';r+='\nحوالي '+Math.ceil((tg-n)/36e5)+' ساعة'}
+else r='مضى على '+lb+' '+(-days)+' يوم';
+$('cdo').textContent=r}
+// المسبحة
+const TSD=['سبحان الله','الحمد لله','الله أكبر','لا إله إلا الله','أستغفر الله','سبحان الله وبحمده','لا حول ولا قوة إلا بالله','اللهم صل وسلم على نبينا محمد'];
+let TS={n:0,d:0,t:33};try{const o=JSON.parse(localStorage.getItem('ts'));if(o&&typeof o==='object')TS=Object.assign(TS,o)}catch(e){}
+function tsSave(){try{localStorage.setItem('ts',JSON.stringify(TS))}catch(e){}}
+function tsShow(){$('tsn').textContent=TS.n;$('tsx').textContent=TSD[TS.d]||TSD[0];$('tsp').textContent=TS.t?'الهدف: '+TS.t:'بلا حدّ'}
+function tsInit(){const s=$('tsd');if(!s.options.length)s.innerHTML=TSD.map((x,i)=>'<option value="'+i+'">'+x+'</option>').join('');s.value=TS.d;$('tst').value=TS.t;tsShow()}
+function tsTap(){TS.n++;tsShow();tsSave();if(navigator.vibrate){if($('tsv').checked)navigator.vibrate(15);if(TS.t&&TS.n===TS.t)navigator.vibrate([200,100,200])}
+if(TS.t&&TS.n===TS.t)toast('ما شاء الله، أكملت '+TS.t+' ✅')}
+function tsSet(){TS.d=+$('tsd').value;TS.t=+$('tst').value;TS.n=0;tsSave();tsShow()}
+function tsReset(){TS.n=0;tsSave();tsShow()}
+// أزرار المشاركة تحت كل أداة
+(function(){const base=/^https?:$/.test(location.protocol)?location.origin+location.pathname:'https://nx90i.github.io/';
+T.forEach(x=>{const s=$(x[0]);if(!s)return;const u=base+'#'+x[0],t='جرّب أداة «'+x[2]+'» من موقع أدواتي',e=encodeURIComponent,d=document.createElement('div');
+d.className='box shr';d.innerHTML='<h3>شارك الأداة مع أصدقائك</h3><div class="sb"><a target="_blank" rel="noopener" href="https://wa.me/?text='+e(t+'\n'+u)+'">واتساب</a><a target="_blank" rel="noopener" href="https://t.me/share/url?url='+e(u)+'&text='+e(t)+'">تيليجرام</a><button type="button" class="cl">نسخ الرابط</button></div>';
+d.querySelector('.cl').onclick=()=>copy(u);s.appendChild(d)})})();
+
+const _sh=show;show=function(h){_sh(h);if(h==='ty')tyNew();if(h==='ts')tsInit()};route();
 // عمر
 function age(){const b=new Date($('bd').value);if(isNaN(b)){$('ao').textContent='اختر تاريخاً صحيحاً';return}
 const n=new Date();let y=n.getFullYear()-b.getFullYear(),m=n.getMonth()-b.getMonth(),d=n.getDate()-b.getDate();
